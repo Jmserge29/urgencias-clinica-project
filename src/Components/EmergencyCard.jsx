@@ -4,7 +4,7 @@ function EmergencyCard({emergency}) {
     const [urgency, setUrgency] = useState([])
     const loadEmergency = async() => {
       await axios.get(`https://urgencias-servidor-project.vercel.app/Emergency/getEmergencyById/${emergency}`).then((res) => {
-        setUrgency(res.data)
+        console.log(res.data)
       })
     }
     loadEmergency()
