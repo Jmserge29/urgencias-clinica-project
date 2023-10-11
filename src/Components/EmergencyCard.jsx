@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 
 function EmergencyCard({emergency}) {
@@ -21,7 +22,7 @@ function EmergencyCard({emergency}) {
                   <div className="text-white font-medium py-2">
                     Estado:{" "}
                     <button className="mx-4 bg-white rounded-2xl text-black px-4 py-2">
-                      Pendiente
+                      {urgency.estado}
                     </button>
                   </div>
                   <div className="text-white font-medium py-2 mb-6">

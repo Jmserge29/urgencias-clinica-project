@@ -32,7 +32,7 @@ function PatientCard({paciente}) {
           </button>
         </div>
         <h3 className="text-base font-medium text-stone-700 leading-normal mb-2 text-blueGray-700">
-          Identificación: 1025548968
+          Identificación: {paciente.identificacion}
         </h3>
         <h3 className="text-base font-medium text-stone-800 leading-normal mb-2 text-blueGray-700">
           Fecha de registro: {paciente.updatedAt}
