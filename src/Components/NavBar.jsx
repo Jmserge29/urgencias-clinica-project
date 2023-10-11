@@ -10,12 +10,6 @@ function NavBar() {
           <div className="hidden w-full md:block md:w-auto ">
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
               <li>
-                <Link to={"/urgency"}><a className="cursor-pointer block py-2 px-3">Urgencias</a></Link>
-              </li>
-              <li>
-                <Link to={"/dev"}><a className="cursor-pointer block py-2 px-3">Desarrollo</a></Link>
-              </li>
-              <li>
                 <Link to={"/register"}><a className="cursor-pointer block py-2 px-3">Regístrate</a></Link>
               </li>
               <li>

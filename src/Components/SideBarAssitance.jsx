@@ -1,4 +1,4 @@
-import { UserGroupIcon, RectangleGroupIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { UserGroupIcon, RectangleGroupIcon, ArrowRightOnRectangleIcon } from '@heroicons/react/24/solid'
 
 export const IconSideBar = ({ icon, text = "tooltip 💡" }) => {
     return (
@@ -13,6 +13,12 @@ export const IconSideBar = ({ icon, text = "tooltip 💡" }) => {
 
 
 function SideBarAssitance() {
+
+    const SignOut = () => {
+        localStorage.removeItem('assistance');
+        window.location.href = '../';
+    }
+
 
     const navigation = [
         {
@@ -43,6 +49,14 @@ function SideBarAssitance() {
                             </div>
                         )
                     })}
+                    <div>
+                        <a >
+                            <div className="sidebar-icon group" onClick={(e) => SignOut()}>
+                                <ArrowRightOnRectangleIcon/>
+                                <span className="sidebar-tooltip group-hover:scale-100">Cerrar Sesión</span>
+                            </div>
+                        </a>
+                    </div>
                 </ul>
             </nav>
         </div>

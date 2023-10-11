@@ -25,17 +25,6 @@ function SideBar() {
             url: "/portal",
             icon: <UserCircleIcon/>,
         },
-        {
-            name: "Pacientes",
-            url: "/patients",
-            icon: <UserGroupIcon/>,
-        },
-
-        {
-            name: "Desarrollo",
-            url: "/dev",
-            icon: <RocketLaunchIcon/>,
-        },
     ]
 
     

@@ -103,7 +103,7 @@ function PatientPortal() {
                             Recomendaciones
                           </dt>
                           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                            Backend Developer
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum ut atque ratione id, suscipit ipsam! Cumque, inventore! Placeat corrupti sit eligendi unde nostrum veniam? Dolores corporis nisi excepturi amet illo!
                           </dd>
                         </div>
                         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -111,7 +111,7 @@ function PatientPortal() {
                             Tratamiento
                           </dt>
                           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                            margotfoster@example.com
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quasi enim velit dolorem consequatur, doloremque deserunt a dolorum asperiores eveniet aut quo quaerat, repudiandae eum assumenda porro reprehenderit, qui aliquid.
                           </dd>
                         </div>
                         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">

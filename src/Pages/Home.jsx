@@ -12,8 +12,8 @@ function Home() {
       <div className=" mx-auto">
         <img className="h-[44rem] w-full bg-cover" src="https://www.clinicageneraldelnorte.com/wp-content/uploads/2018/05/banner-resena-historica2.jpg" alt="CGN" />
       </div>
-      <BannerCGN/>
       <BannerAcademico/>
+      <BannerCGN/>
     </div>
   );
 }

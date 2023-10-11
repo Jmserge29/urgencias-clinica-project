@@ -1,17 +1,15 @@
 import React from 'react'
 
-function CardUser() {
+function CardUser({paciente}) {
   return (
     
-<div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-    <div class="mt-8 flex flex-col items-center pb-10">
-        <img class="w-24 h-24 mb-3 rounded-full shadow-lg bg-cover" src="https://www.publimetro.co/resizer/h2oY_HTQJ3DA3QeX4ij4qRuAt6E=/1024x1024/filters:format(png):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/OC4NSXVPJ5E3RD4RU62UWWFJRI.png" alt="Paciente"/>
-        <h5 class="mb-1 text-xl font-medium text-gray-900 ">Bonnie Green</h5>
-        <span class="text-sm text-gray-500 ">Visual Designer</span>
-        <div class="flex mt-4 space-x-3 md:mt-6">
-            <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">Actualizar</a>
-            <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 ">Eliminar</a>
-        </div>
+<div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
+    <div className="mt-8 flex flex-col items-center pb-10 px-5">
+        <img className="w-24 h-24 mb-3 rounded-full shadow-lg bg-cover" src={paciente.picture} alt="Paciente"/>
+        <h5 className="mb-1 text-xl font-medium text-gray-900 ">{paciente.nombre} {paciente.apellido}</h5>
+        <button className='my-2 bg-indigo-500 px-4 py-2 text-white font-medium uppercase rounded-2xl'>{paciente.eps}</button>
+        <span className="mt-4 text-base text-white font-semibold bg-stone-600 px-3 py-2 rounded-xl">{paciente.edad} Años</span>
+        <span className="mt-4 text-sm text-stone-700 font-semibold ">Emergencia asignada : {paciente.emergencia_asignada}</span>
     </div>
 </div>
 

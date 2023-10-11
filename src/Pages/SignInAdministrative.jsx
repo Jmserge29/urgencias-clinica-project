@@ -1,19 +1,25 @@
 import axios from "axios";
 import NavBar from "../Components/NavBar";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignInAdministrative() {
   const [email, setEmail] = useState([])
   const [password, setPassword] = useState([])
+  const navigate = useNavigate();
 
   const sendCredentials = async(e) => {
     e.preventDefault();
     try {
-      axios.post("", {
-        email,
-        password
+      axios.post("https://urgencias-servidor-project.vercel.app/Assistance/SignInAssistance", {
+        correo: email,
+        password,
       }).then((res) => {
-        console.log("request sended succesly")
+        console.log("request sended succesly", res)
+        const usuarioJSON = JSON.stringify(res.data.assistance);
+        localStorage.setItem('assistance', usuarioJSON);
+        navigate("/assistance")
+
       }).catch((err) => {
         console.log(err)
       })
@@ -61,8 +67,6 @@ function SignInAdministrative() {
               <div className="mt-2">
                 <input
                 value={email}
-                  id="email"
-                  name="email"
                   type="email"
                   autoComplete="email"
                   onChange={(e) => setEmail(e.target.value)}

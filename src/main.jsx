@@ -5,7 +5,6 @@ import Landing from "./Pages/Home.jsx";
 import "./index.css";
 import Portal from "./Pages/Portal.jsx";
 import Assistance from "./Pages/Assistance.jsx";
-import Dev from "./Pages/Dev.jsx";
 import Register from "./Pages/Register.jsx";
 import SignInAdministrative from "./Pages/SignInAdministrative.jsx"
 import SignInLaboral from "./Pages/SignInLaboral.jsx";
@@ -27,7 +26,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/assistance" element={<Assistance />} />
       <Route path="/assistance/patients" element={<ListPatients />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/dev" element={<Dev />} />
       <Route path="/test" element={<Test />} />
 
 

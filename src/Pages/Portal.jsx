@@ -20,9 +20,13 @@ function Portal() {
       </div>
       <h2 className='ml-8 mt-12 text-xl font-semibold'>Emergencias Asignadas</h2>
         <div className='grid grid-cols-4 px-2  mb-32'>
-          <CardPatient/>
-          <CardPatient/>
-
+          {doctor.emergencias_asignadas.map((data, i) => {
+            return(
+              <div key={data._id}>
+                <CardPatient urgencia={data}/>
+              </div>
+            )
+          })}
         </div>
     </div>
     </>

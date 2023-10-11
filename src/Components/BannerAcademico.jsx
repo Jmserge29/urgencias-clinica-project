@@ -2,7 +2,7 @@ import React from 'react'
 
 function BannerAcademico() {
   return (
-    <div className="py-12 sm:py-32">
+    <div className="py-12 sm:py-24">
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
       <h2 className="text-center text-6xl text-stone-700 font-bold ">
         Proyecto De Aula
