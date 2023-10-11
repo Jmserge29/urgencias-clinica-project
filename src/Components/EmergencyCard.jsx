@@ -49,7 +49,7 @@ function EmergencyCard({emergency}) {
                             Doctor Asignado
                           </dt>
                           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                            Margot Foster
+                            {urgency.doctorAsignado}
                           </dd>
                         </div>
                         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -57,7 +57,7 @@ function EmergencyCard({emergency}) {
                             Recomendaciones
                           </dt>
                           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum ut atque ratione id, suscipit ipsam! Cumque, inventore! Placeat corrupti sit eligendi unde nostrum veniam? Dolores corporis nisi excepturi amet illo!
+                            {urgency.recomendaciones}
                           </dd>
                         </div>
                         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -65,7 +65,7 @@ function EmergencyCard({emergency}) {
                             Tratamiento
                           </dt>
                           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quasi enim velit dolorem consequatur, doloremque deserunt a dolorum asperiores eveniet aut quo quaerat, repudiandae eum assumenda porro reprehenderit, qui aliquid.
+                            {urgency.tratamiento}.
                           </dd>
                         </div>
                         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -73,12 +73,7 @@ function EmergencyCard({emergency}) {
                             Sintomas
                           </dt>
                           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                            Fugiat ipsum ipsum deserunt culpa aute sint do
-                            nostrud anim incididunt cillum culpa consequat.
-                            Excepteur qui ipsum aliquip consequat sint. Sit id
-                            mollit nulla mollit nostrud in ea officia proident.
-                            Irure nostrud pariatur mollit ad adipisicing
-                            reprehenderit deserunt qui eu.
+                            {urgency.motivos_consulta}
                           </dd>
                         </div>
                         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -105,7 +100,7 @@ function EmergencyCard({emergency}) {
                                   </svg>
                                   <div className="ml-4 flex min-w-0 flex-1 gap-2">
                                     <span className="truncate font-medium">
-                                      Acetaminofen
+                                      {urgency.medicamentosRecetados}
                                     </span>
                                   </div>
                                 </div>
