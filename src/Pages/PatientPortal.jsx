@@ -58,7 +58,7 @@ function PatientPortal() {
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
             <PatientCard paciente={paciente}/>
             <div className="mt-10 py-10 border-t border-blueGray-200">
-              {paciente.emergencia_asignada == null ? "" : <EmergencyCard urgencia={paciente.emergencia_asignada}/>}
+              {paciente.emergencia_asignada == null ? "" : <EmergencyCard emergency={paciente.emergencia_asignada}/>}
               
               <PatientFuctions paciente={paciente} motivos_consulta={motivos_consulta}
 setMotivos_consulta={setMotivos_consulta} createUrgency={createUrgency} />
