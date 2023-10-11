@@ -13,7 +13,7 @@ function SignInLaboral() {
   const sendCredentials = async (e) => {
     e.preventDefault();
     try {
-      axios
+      await axios
         .post("https://urgencias-servidor-project.vercel.app/Doctor/signInDoctor", {
           correo: email,
           password,
