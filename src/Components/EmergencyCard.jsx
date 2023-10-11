@@ -2,11 +2,10 @@ import axios from 'axios'
 import React, { useState } from 'react'
 
 function EmergencyCard({emergency}) {
-    console.log("emergencia :" , emergency)
     const [urgency, setUrgency] = useState([])
     const loadEmergency = async() => {
       await axios.get(`https://urgencias-servidor-project.vercel.app/Emergency/getEmergencyById/${emergency}`).then((res) => {
-        console.log(res.data)
+        setUrgency(res.data)
       })
     }
     loadEmergency()
