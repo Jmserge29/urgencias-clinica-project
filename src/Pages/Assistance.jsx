@@ -147,7 +147,7 @@ function Assistance() {
                       />
                       <div className="pl-3">
                         <div className="text-base font-semibold">
-                          {dato.paciente}
+                          Id paciente: {dato.paciente}
                         </div>
                         <div className="font-normal text-gray-500">
                           {dato.hora}
@@ -218,7 +218,7 @@ function Assistance() {
                       />
                       <div className="pl-3">
                         <div className="text-base font-semibold">
-                          {dato.paciente}
+                          Id relacionado del paciente: {dato.paciente}
                         </div>
                         <div className="font-normal text-gray-500">
                           {dato.hora}
