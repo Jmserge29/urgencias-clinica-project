@@ -1,10 +1,14 @@
 import NavBar from "../Components/NavBar";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+
 function SignInLaboral() {
   const [email, setEmail] = useState([]);
   const [password, setPassword] = useState([]);
   const [error, setError] = useState(null)
+  const navigate = useNavigate();
 
   const sendCredentials = async (e) => {
     e.preventDefault();
@@ -20,6 +24,7 @@ function SignInLaboral() {
           const usuarioJSON = JSON.stringify(res.data.doctor);
           // Guarda el objeto de usuario en el localStorage bajo una clave específica
           localStorage.setItem('doctor', usuarioJSON);
+          navigate("/portal")
         })
         .catch((err) => {
           console.log(err);

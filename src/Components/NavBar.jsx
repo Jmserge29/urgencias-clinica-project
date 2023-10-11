@@ -16,10 +16,10 @@ function NavBar() {
                 <Link to={"/dev"}><a className="cursor-pointer block py-2 px-3">Desarrollo</a></Link>
               </li>
               <li>
-                <Link to={"/portal"}><a className="cursor-pointer block py-2 px-3">Portal</a></Link>
+                <Link to={"/register"}><a className="cursor-pointer block py-2 px-3">Regístrate</a></Link>
               </li>
               <li>
-                <Link to={"/register"}><a className="cursor-pointer block py-2 px-3">Regístrate</a></Link>
+                <Link to={"/auth/patient"}><a className="cursor-pointer block py-2 px-3">Autenticación</a></Link>
               </li>
               <li>
                 <Link to={"/auth/administrative"}><a className="cursor-pointer block py-2 px-3">Panel Administrativo</a></Link>

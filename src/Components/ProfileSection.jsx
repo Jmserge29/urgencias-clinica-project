@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProfileSection() {
+function ProfileSection({doctor}) {
   return (
     <>
       <div className="col-span-2 rounded-xl mr-5 bg-slate-50 shadow-2xl h-72 grid grid-rows-3">
@@ -19,9 +19,9 @@ function ProfileSection() {
         </div>
         <div className="row-span-1 px-4">
           <h5 className="text-lg font-bold text-center mt-3">
-            Máximo Valentín
+            {doctor.nombre} {doctor.apellido}
           </h5>
-          <p className="text-center pb-5">Médico especialista en Dermatología</p>
+          <p className="text-center pb-5">Médico especialista en {doctor.especialidad}</p>
         </div>
       </div>
     </>

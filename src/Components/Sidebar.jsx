@@ -1,4 +1,4 @@
-import { HomeIcon, UserGroupIcon, RocketLaunchIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import {  UserGroupIcon, RocketLaunchIcon, UserCircleIcon, ArrowRightOnRectangleIcon} from '@heroicons/react/24/solid'
 
 export const IconSideBar = ({ icon, text = "tooltip 💡" }) => {
     return (
@@ -11,30 +11,35 @@ export const IconSideBar = ({ icon, text = "tooltip 💡" }) => {
     );
   };  
 
-
 function SideBar() {
+
+    const SignOut = () => {
+        window.location.href = './';
+        localStorage.removeItem('doctor');
+    }
+    
 
     const navigation = [
         {
             name: "Usuario",
-            url: "/",
+            url: "/portal",
             icon: <UserCircleIcon/>,
         },
         {
             name: "Pacientes",
-            url: "/menu",
+            url: "/patients",
             icon: <UserGroupIcon/>,
         },
 
         {
             name: "Desarrollo",
-            url: "/order",
+            url: "/dev",
             icon: <RocketLaunchIcon/>,
         },
     ]
 
     
-  return (
+  return (<>
     <div className='hidden lg:flex fixed top-0 left-0 h-screen w-28 justify-center flex-col bg-white text-white drop-shadow-2xl'>
         <div className='flex justify-center '>
             <nav>
@@ -48,10 +53,19 @@ function SideBar() {
                             </div>
                         )
                     })}
+                    <div>
+                        <a >
+                            <div className="sidebar-icon group" onClick={(e) => SignOut()}>
+                                <ArrowRightOnRectangleIcon/>
+                                <span className="sidebar-tooltip group-hover:scale-100">Cerrar Sesión</span>
+                            </div>
+                        </a>
+                    </div>
                 </ul>
             </nav>
         </div>
     </div>
+    </>
   )
 }
 
