@@ -41,7 +41,7 @@ function Login() {
               <hr className="h-0 my-2 border-b border-solid border-grey-500 grow"/>
             </div>
             <label className="mb-2 text-sm text-start text-grey-900">Identificación *</label>
-            <input id="text" value={identificacion} onChange={(e) => setIdentificacion(e.target.value)} type="email" placeholder="99999999" className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl"/>
+            <input value={identificacion} onChange={(e) => setIdentificacion(e.target.value)} type="Number" placeholder="99999999" className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl"/>
             <label className="mb-2 text-sm text-start text-grey-900">Password *</label>
             <input id="password" value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="**************" className="flex items-center w-full px-5 py-4 mb-5 mr-2 text-sm font-medium outline-none focus:bg-blue-200 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl"/>
             <button type="button" onClick={Ingresar} className="w-full px-6 py-5 mb-5 text-sm font-bold leading-none text-white transition duration-300 
