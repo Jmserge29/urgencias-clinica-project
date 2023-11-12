@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-
+    const navigate = useNavigate();
     const [identificacion, setIdentificacion] = useState([])
     const [password, setPassword] = useState([])
 
@@ -15,6 +16,14 @@ function Login() {
               password
             }).then((res) => {
               console.log(res)
+              const usuarioJSON = JSON.stringify(res.data.user);
+              if(res.data.perfil == 'doctor'){
+                localStorage.setItem('doctor', usuarioJSON);
+              } else {
+                localStorage.setItem('patient', usuarioJSON);
+              }
+              navigate("/me")
+  
             }).catch((err) => {
               console.log(err)
             })

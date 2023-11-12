@@ -23,7 +23,11 @@ function SignInPatient() {
             console.log("request sended succesly", res);
             // Convierte el objeto de usuario a una cadena JSON
             const usuarioJSON = JSON.stringify(res.data.paciente);
-            localStorage.setItem('patient', usuarioJSON);
+            if(res.data.perfil == ''){
+              localStorage.setItem('doctor', usuarioJSON);
+            } else {
+              localStorage.setItem('patient', usuarioJSON);
+            }
             navigate("/me")
           })
           .catch((err) => {
