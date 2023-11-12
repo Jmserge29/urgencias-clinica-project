@@ -9,9 +9,10 @@ function Login() {
     const Ingresar =(e) => {
         e.preventDefault();
         try {
+          console.log(identificacion, "password: ", password)
             axios.post(`https://urgencias-servidor-project.vercel.app/User/sign-in`, {
               identificacion: identificacion,
-              password
+              password: password
             }).then((res) => {
               console.log(res)
             }).catch((err) => {
