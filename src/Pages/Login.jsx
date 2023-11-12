@@ -6,11 +6,11 @@ function Login() {
     const [identificacion, setIdentificacion] = useState([])
     const [password, setPassword] = useState([])
 
-    const Ingresar =(e) => {
+    const Ingresar =async (e) => {
         e.preventDefault();
         try {
           console.log(identificacion, "password: ", password)
-            axios.post(`https://urgencias-servidor-project.vercel.app/User/sign-in`, {
+            await axios.post(`https://urgencias-servidor-project.vercel.app/User/sign-in`, {
               identificacion: identificacion,
               password: password
             }).then((res) => {
