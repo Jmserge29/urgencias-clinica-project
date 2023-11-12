@@ -147,7 +147,7 @@ function Assistance() {
                       />
                       <div className="pl-3">
                         <div className="text-base font-semibold">
-                          Neil SOmbra
+                          User
                         </div>
                         <div className="font-normal text-gray-500">
                           {dato.hora}

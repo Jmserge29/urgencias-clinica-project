@@ -12,6 +12,8 @@ import ListPatients from "./Pages/ListPatients.jsx";
 import PatientPortal from "./Pages/PatientPortal.jsx";
 import Test from "./Pages/Test.jsx";
 import SignInPatient from "./Pages/SignInPatient.jsx";
+import Plataforma from "./Pages/Plataforma.jsx";
+import Login from "./Pages/Login.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router>
@@ -27,6 +29,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/assistance/patients" element={<ListPatients />} />
       <Route path="/register" element={<Register />} />
       <Route path="/test" element={<Test />} />
+      <Route path="/plataform" element={<Plataforma />} />
+      <Route path="/login" element={<Login />} />
+
 
 
       </Routes>

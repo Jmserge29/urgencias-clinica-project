@@ -1,4 +1,4 @@
-import ModalEmergency from "../Components/ModalEmergency";
+import ModalEmergency from "./Modals/Plataform/ModalEmergency";
 import { useState } from "react";
 import ModalOdontologia from "../Components/ModalOdontologia";
 
