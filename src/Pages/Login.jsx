@@ -11,8 +11,8 @@ function Login() {
         try {
           console.log(identificacion, "password: ", password)
             await axios.post(`https://urgencias-servidor-project.vercel.app/User/sign-in`, {
-              identificacion: identificacion,
-              password: password
+              "identificacion": identificacion,
+              "password": password
             }).then((res) => {
               console.log(res)
             }).catch((err) => {
