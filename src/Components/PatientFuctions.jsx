@@ -1,6 +1,6 @@
 import ModalEmergency from "./Modals/Plataform/ModalEmergency";
 import { useState } from "react";
-import ModalDelete from "../Modals/Plataform/ModalDelete";
+import ModalDelete from "./Modals/Plataform/ModalDelete";
 
 
 function PatientFuctions({paciente, motivos_consulta,setMotivos_consulta, createUrgency}) {
