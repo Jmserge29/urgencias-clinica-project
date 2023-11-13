@@ -19,11 +19,11 @@ function Login() {
               const usuarioJSON = JSON.stringify(res.data.user);
               if(res.data.perfil == 'doctor'){
                 localStorage.setItem('doctor', usuarioJSON);
+                navigate("/portal")
               } else {
                 localStorage.setItem('patient', usuarioJSON);
+                navigate("/me")
               }
-              navigate("/me")
-  
             }).catch((err) => {
               console.log(err)
             })
