@@ -16,11 +16,8 @@ function PatientCard({paciente}) {
         <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center"></div>
       </div>
       <div className="text-center mt-44">
-        <h3 className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700">
+        <h3 className="text-6xl font-semibold leading-normal mb-2 text-blueGray-700">
           {paciente.nombre} {paciente.apellido}
-        </h3>
-        <h3 className="text-base font-medium text-stone-800 leading-normal mb-2 text-blueGray-700">
-          Género: {paciente.genero}
         </h3>
         <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
           <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
@@ -33,9 +30,6 @@ function PatientCard({paciente}) {
         </div>
         <h3 className="text-base font-medium text-stone-700 leading-normal mb-2 text-blueGray-700">
           Identificación: {paciente.identificacion}
-        </h3>
-        <h3 className="text-base font-medium text-stone-800 leading-normal mb-2 text-blueGray-700">
-          Fecha de registro: {paciente.updatedAt}
         </h3>
       </div>
     </div>
