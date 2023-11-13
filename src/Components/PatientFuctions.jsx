@@ -30,7 +30,7 @@ function PatientFuctions({paciente, motivos_consulta,setMotivos_consulta, create
   
   return (<>
   <div className="text-center">
-  <div className="my-4">
+      <div className="my-4">
         <button
           className="px-4 py-3 bg-blue-500 text-white font-medium rounded-3xl text-lg"
           onClick={openModal}
@@ -40,10 +40,34 @@ function PatientFuctions({paciente, motivos_consulta,setMotivos_consulta, create
       </div>
       <div className="my-4">
         <button
+          className="px-4 py-3 bg-pink-500 text-white font-medium rounded-3xl text-lg"
+          onClick={openModal}
+        >
+          Historial Clínico
+        </button>
+      </div>
+      <div className="my-4">
+        <button
+          className="px-4 py-3 bg-teal-500 text-white font-medium rounded-3xl text-lg"
+          onClick={openModal}
+        >
+          Actualizar Datos
+        </button>
+      </div>
+      <div className="my-4">
+        <button
           className="px-4 py-3 bg-indigo-500 text-white font-medium rounded-3xl text-lg"
           onClick={openModalOdontologia}
         >
           Servicio De Odontología
+        </button>
+      </div>
+      <div className="my-4">
+        <button
+          className="px-4 py-3 bg-stone-600 text-white font-medium rounded-3xl text-lg"
+          onClick={openModal}
+        >
+          Eliminar Cuenta
         </button>
       </div>
       <div className="my-4">
