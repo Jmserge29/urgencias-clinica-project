@@ -93,7 +93,7 @@ function PatientFuctions({paciente, motivos_consulta,setMotivos_consulta, create
       <ModalEmergency isOpen={isOpen} closeModal={closeModal} paciente={paciente} motivos_consulta={motivos_consulta} setMotivos_consulta={setMotivos_consulta} createUrgency={createUrgency}/>
       {/* Modal Eliminar Cuenta */}
       <ModalDelete
-        isOpen={openDeleteAccount}
+        isOpen={isOpenDeleteAccount}
         closeModal={closeDeleteAccount}
       />
 
