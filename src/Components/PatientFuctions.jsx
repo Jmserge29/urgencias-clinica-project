@@ -29,35 +29,12 @@ function PatientFuctions({paciente, motivos_consulta,setMotivos_consulta, create
     }
   
   return (<>
-  <div className="text-center">
-  <div className="my-4">
-        <button
-          className="px-4 py-3 bg-blue-500 text-white font-medium rounded-3xl text-lg"
-          onClick={openModal}
-        >
-          Servicio De Urgencias
-        </button>
-      </div>
-      <div className="my-4">
-        <button
-          className="px-4 py-3 bg-indigo-500 text-white font-medium rounded-3xl text-lg"
-          onClick={openModalOdontologia}
-        >
-          Servicio De Odontología
-        </button>
-      </div>
-      <div className="my-4">
-        <button className="px-4 py-3 bg-rose-500 text-white font-medium rounded-3xl text-lg" onClick={SignOut}>
-          Cerrar Sesión
-        </button>
-      </div>
-      <ModalEmergency isOpen={isOpen} closeModal={closeModal} paciente={paciente} motivos_consulta={motivos_consulta} setMotivos_consulta={setMotivos_consulta} createUrgency={createUrgency}/>
-      <ModalOdontologia
-        isOpen={isOpenOdontologia}
-        closeModal={closeModalOdontologia}
-      />
-
-  </div>
+  <div className="container mx-auto grid grid-cols-2 text-base sm:text-3xl font-semibold mt-32">
+      <div className=" col-span-1 flex justify-center items-center rounded-lg h-32 m-4  bg-purple-100 hover:cursor-pointer hover:bg-purple-200 text-center text-indigo-500">Solicitar Una Emergencia</div>
+      <div className=" col-span-1 flex justify-center items-center rounded-lg h-32 m-4  bg-green-100 hover:cursor-pointer hover:bg-green-200 text-emerald-500">Historial Clínico</div>
+      <div className=" col-span-1 flex justify-center items-center rounded-lg h-32 m-4  bg-blue-100 hover:cursor-pointer hover:bg-blue-200 text-sky-500">Actualizar Datos</div>
+      <div className=" col-span-1 text-center flex justify-center items-center rounded-lg h-32 m-4  bg-red-200 hover:cursor-pointer hover:bg-red-100 text-rose-500" onClick={() => openModal()}>Eliminar Cuenta / Darse de Baja</div>
+    </div>
     </>
   );
 }
