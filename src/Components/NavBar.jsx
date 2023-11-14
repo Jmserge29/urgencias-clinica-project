@@ -8,19 +8,20 @@ function NavBar() {
             Clínica General Del Norte
           </div></Link>
           <div className="hidden w-full md:block md:w-auto ">
-            <ul className="font-medium flex flex-col p-4 md:p-0 mt-4rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
+            <ul className="font-medium flex flex-col text-sm p-4 md:p-0 mt-4rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
+              <li>
+                <Link to={"/login"}><a className="cursor-pointer block py-2 px-3">Iniciar Sesión</a></Link>
+              </li>
               <li>
                 <Link to={"/register"}><a className="cursor-pointer block py-2 px-3">Regístrate</a></Link>
               </li>
-              <li>
-                <Link to={"/auth/patient"}><a className="cursor-pointer block py-2 px-3">Autenticación</a></Link>
-              </li>
-              <li>
+              <a className="text-center flex items-center" href="https://www.clinicageneraldelnorte.com/">Pagina Principal</a>
+              {/* <li>
                 <Link to={"/auth/administrative"}><a className="cursor-pointer block py-2 px-3">Panel Administrativo</a></Link>
               </li>
               <li>
                 <Link to={"/auth/doctor"}><a className="cursor-pointer block py-2 px-3">Panel Laboral</a></Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

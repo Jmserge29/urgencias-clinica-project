@@ -5,12 +5,8 @@ import Landing from "./Pages/Home.jsx";
 import "./index.css";
 import Portal from "./Pages/Portal.jsx";
 import Register from "./Pages/Register.jsx";
-import SignInAdministrative from "./Pages/SignInAdministrative.jsx"
-import SignInLaboral from "./Pages/SignInLaboral.jsx";
-import ListPatients from "./Pages/ListPatients.jsx";
 import PatientPortal from "./Pages/PatientPortal.jsx";
 import Test from "./Pages/Test.jsx";
-import SignInPatient from "./Pages/SignInPatient.jsx";
 import Plataforma from "./Pages/Plataforma.jsx";
 import Login from "./Pages/Login.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -27,10 +23,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       
       <Route path="/portal" element={<Portal />} />
       <Route path="/me" element={<PatientPortal />} />
-      <Route path="/auth/administrative" element={<SignInAdministrative />} />
-      <Route path="/auth/doctor" element={<SignInLaboral />} />
-      <Route path="/auth/patient" element={<SignInPatient />} />
-      <Route path="/assistance/patients" element={<ListPatients />} />
       <Route path="/register" element={<Register />} />
       <Route path="/test" element={<Test />} />
 

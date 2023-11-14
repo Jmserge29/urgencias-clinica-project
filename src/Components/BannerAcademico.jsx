@@ -4,8 +4,8 @@ function BannerAcademico() {
   return (
     <div className="py-12 sm:py-24">
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
-      <h2 className="text-center text-6xl text-stone-700 font-bold ">
-        Proyecto De Aula
+      <h2 className="text-center text-5xl leading-4 text-gray-700 font-bold ">
+        Proyecto De Aula <span className='text-rose-500'>[ Esctructura De Datos ]</span>
       </h2>
       <div className="mt-16 grid max-w-lg grid-cols-4 items-center gap-y-10 sm:max-w-xl sm:grid-cols-2 sm:gap-x-2 lg:mx-0 lg:max-w-none lg:grid-cols-5 space-x-12">
         <img

@@ -1,4 +1,4 @@
-import {  UserGroupIcon, RocketLaunchIcon, UserCircleIcon, ArrowRightOnRectangleIcon} from '@heroicons/react/24/solid'
+import {  UserGroupIcon, UserCircleIcon, ArrowRightOnRectangleIcon} from '@heroicons/react/24/solid'
 
 export const IconSideBar = ({ icon, text = "tooltip 💡" }) => {
     return (
@@ -12,7 +12,6 @@ export const IconSideBar = ({ icon, text = "tooltip 💡" }) => {
   };  
 
 function SideBar() {
-
     const SignOut = () => {
         window.location.href = './';
         localStorage.removeItem('doctor');
@@ -25,6 +24,12 @@ function SideBar() {
             url: "/portal",
             icon: <UserCircleIcon/>,
         },
+        {
+            name: "Pacientes - Urgencias",
+            url: "/test",
+            icon: <UserGroupIcon/>,
+        },
+
     ]
 
     
