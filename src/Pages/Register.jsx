@@ -17,18 +17,18 @@ function Register() {
 
 
   const createNewPatient = async (e) => {
-    console.log(          {
-      identificacion,
-      password,
-      email,
-      nombre,
-      apellido,
-      edad,
-      telefono,
-      eps
-    })
-    e.preventDefault();
     try {
+      console.log(          {
+        identificacion,
+        password,
+        email,
+        nombre,
+        apellido,
+        edad,
+        telefono,
+        eps
+      })
+      e.preventDefault();
       await axios
         .post(
           "https://urgencias-servidor-project.vercel.app/User/sign-up",
@@ -103,12 +103,12 @@ function Register() {
               <div>
                 <label className="mb-2 text-sm text-start text-grey-900">Seleccione su EPS *</label>
                 {/* <input value={eps} onChange={(e) => setEps(e.target.value)} type="select" placeholder="99999999" className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl"/> */}
-                <select className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl">
+                <select value={eps} onChange={(e) => setEps(e.target.value)} className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl">
                   <option selected>Seleccione su EPS</option>
-                  <option value="US">Nueva EPS</option>
-                  <option value="CA">EPS SURA</option>
-                  <option value="FR">Sanitas</option>
-                  <option value="DE">Salud Total</option>
+                  <option value="Nueva EPS">Nueva EPS</option>
+                  <option value="EPS SURA">EPS SURA</option>
+                  <option value="Sanitas">Sanitas</option>
+                  <option value="Salud Total">Salud Total</option>
               </select>
 
               </div>
