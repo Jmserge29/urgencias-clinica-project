@@ -47,7 +47,7 @@ function Register() {
           console.log("request sended succesly", res);
           const usuarioJSON = JSON.stringify(res.data.paciente);
           localStorage.setItem('patient', usuarioJSON);
-          // navigate("/me")
+          navigate("/me")
 
         })
         .catch((err) => {
