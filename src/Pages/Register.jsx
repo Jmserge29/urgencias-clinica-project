@@ -45,7 +45,7 @@ function Register() {
         )
         .then((res) => {
           console.log("request sended succesly", res);
-          const usuarioJSON = JSON.stringify(res.data.paciente);
+          const usuarioJSON = JSON.stringify(res.data.usuario);
           localStorage.setItem('patient', usuarioJSON);
           navigate("/me")
 
