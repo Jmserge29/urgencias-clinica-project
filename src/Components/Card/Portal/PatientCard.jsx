@@ -7,7 +7,7 @@ function PatientCard({ data, array, fuctionClick }) {
     try {
       await axios
         .get(
-          `https://urgencias-servidor-project.vercel.app/User/getUserById/${data._id}`
+          `https://urgencias-servidor-project.vercel.app/User/getUserById/${data.paciente}`
         )
         .then((res) => {
           console.log("Informacion de usuario: ", res.data);
