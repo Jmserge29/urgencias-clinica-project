@@ -5,7 +5,7 @@ import axios from "axios";
 function PatientCard({ data, array, fuctionClick }) {
   const getInformationUser = async () => {
     try {
-      axios
+      await axios
         .get(
           `https://urgencias-servidor-project.vercel.app/User/getUserById/${data._id}`
         )
