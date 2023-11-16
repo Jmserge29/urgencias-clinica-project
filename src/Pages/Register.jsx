@@ -21,7 +21,7 @@ function Register() {
     try {
       await axios
         .post(
-          "https://urgencias-servidor-project.vercel.app/Patient/createPatient",
+          "https://urgencias-servidor-project.vercel.app/User/createPatient",
           {
             nombre: nombre,
             apellido: apellido,
@@ -37,7 +37,7 @@ function Register() {
           console.log("request sended succesly", res);
           const usuarioJSON = JSON.stringify(res.data.paciente);
           localStorage.setItem('patient', usuarioJSON);
-          navigate("/me")
+          // navigate("/me")
 
         })
         .catch((err) => {
