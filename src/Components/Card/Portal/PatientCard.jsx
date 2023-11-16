@@ -50,9 +50,9 @@ function PatientCard({ data, array, fuctionClick }) {
               <h3 className="text-lg font-bold pt-2 text-rose-700">
                 {user.nombre} {user.apellido}
               </h3>
-              <h3 className="text-base mb-4 font-medium">19 Años</h3>
+              <h3 className="text-base mb-4 font-medium">{user.edad} Años</h3>
               <span className="rounded-xl my-2 bg-rose-400 text-white px-4 py-2 font-semibold uppercase">
-                Eps Sura
+                {user.eps}
               </span>
             </div>
             <div className="flex items-center justify-center">
