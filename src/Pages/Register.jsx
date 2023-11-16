@@ -17,20 +17,30 @@ function Register() {
 
 
   const createNewPatient = async (e) => {
+    console.log(          {
+      identificacion,
+      password,
+      email,
+      nombre,
+      apellido,
+      edad,
+      telefono,
+      eps
+    })
     e.preventDefault();
     try {
       await axios
         .post(
           "https://urgencias-servidor-project.vercel.app/User/sign-up",
           {
-            identificacion : "5645665",
-            password : "123456789",
-            email: "Jhon2@gmail.com",
-            nombre: "Jhon2",
-            apellido: "Doe2",
-            edad: "24",
-            telefono: "3008755416",
-            eps: "Sura"
+            identificacion,
+            password,
+            email,
+            nombre,
+            apellido,
+            edad,
+            telefono,
+            eps
           }
         )
         .then((res) => {
