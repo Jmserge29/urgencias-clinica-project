@@ -9,9 +9,9 @@ function PatientPortal() {
   const paciente = JSON.parse(usuarioJSON);
   const [motivos_consulta, setMotivos_consulta] = useState([])
   const actualizarUSer = async() => {
-    axios.get(`https://urgencias-servidor-project.vercel.app/Patient/getPatientById/${paciente._id}`).then((res) => {
+    axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${paciente._id}`).then((res) => {
       console.log("request sended succesly", res.data);
-      const usuarioJSON = JSON.stringify(res.data.paciente);
+      const usuarioJSON = JSON.stringify(res.data.usuario);
       localStorage.setItem('patient', usuarioJSON);
       window.location.reload();
     })

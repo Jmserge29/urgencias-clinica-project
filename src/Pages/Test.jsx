@@ -9,6 +9,14 @@ export default function Test() {
   const [emergenciasSeleccionadas, setEmergenciasSeleccionadas] = useState([]);
   const [data, setData] = useState([]); // Supongamos que recibes la data como un estado
 
+  const getEmergenciesData = () => {
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
+
   useEffect(() => {
     filterRecords(".emergency");
 
