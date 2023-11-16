@@ -3,6 +3,7 @@ import PatientCard from "../Components/Card/Portal/PatientCard";
 import React, { useState, useEffect } from "react";
 import Isotope from "isotope-layout";
 import axios from "axios";
+import { QueueListIcon } from "@heroicons/react/24/solid";
 
 export default function Test() {
   const [isotope, setIsotope] = useState(null);
@@ -270,8 +271,8 @@ export default function Test() {
           </div>
         </div>
       </div>
-      <div className="fixed bottom-0 right-0 h-14 w-14 bg-black ">
-        <button></button>
+      <div className="fixed bottom-2 right-2 text-rose-600 h-14 w-14 rounded-full ">
+        <QueueListIcon />
       </div>
     </>
   );
