@@ -269,9 +269,9 @@ export default function Test() {
             })}
           </div>
         </div>
-        <div className="sticky bottom-0 right-0 h-14 w-14 bg-black ">
-          <button></button>
-        </div>
+      </div>
+      <div className="absolute bottom-0 right-0 h-14 w-14 bg-black ">
+        <button></button>
       </div>
     </>
   );
