@@ -1,8 +1,10 @@
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
 import axios from "axios";
+import { useState } from "react";
 
 function PatientCard({ data, array, fuctionClick }) {
+  const [user, setUser] = useState([]);
   const getInformationUser = async () => {
     try {
       await axios
@@ -10,7 +12,8 @@ function PatientCard({ data, array, fuctionClick }) {
           `https://urgencias-servidor-project.vercel.app/User/getUserById/${data.paciente}`
         )
         .then((res) => {
-          console.log("Informacion de usuario: ", res.data);
+          console.log("Informacion de usuario: ", res.data.usuario);
+          setUser(res.data.usuario);
         })
         .catch((err) => {
           console.log(err);
@@ -45,7 +48,7 @@ function PatientCard({ data, array, fuctionClick }) {
             <div className=" col-span-2 font-mono bg-rose-100 rounded-md">
               <h4 className="text-xl font-semibold py-2">Datos Paciente : </h4>
               <h3 className="text-lg font-bold pt-2 text-rose-700">
-                {data.paciente}
+                {user.nombre} {user.apellido}
               </h3>
               <h3 className="text-base mb-4 font-medium">19 Años</h3>
               <span className="rounded-xl my-2 bg-rose-400 text-white px-4 py-2 font-semibold uppercase">
