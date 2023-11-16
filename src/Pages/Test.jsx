@@ -18,6 +18,7 @@ export default function Test() {
         )
         .then((res) => {
           console.log(res.data);
+          setData(res.data);
         })
         .catch((err) => {
           console.log(err);
@@ -31,90 +32,89 @@ export default function Test() {
     getEmergenciesData();
     filterRecords(".emergency");
 
-    const emergencyData = [
-      {
-        _id: "1",
-        doctorAsignado: null,
-        paciente: "paciente_1",
-        medicamentosRecetados: [],
-        motivos_consulta: "Gripa",
-        tratamiento: "",
-        clasificacion: "Sin atender",
-        hora: "Mon Nov 13 2023 23:30:08 GMT-0500 (hora estándar de Colombia)",
-        createdAt: "2023-11-14T04:30:08.932Z",
-        updatedAt: "2023-11-14T04:30:08.932Z",
-        __v: 0,
-      },
-      {
-        _id: "2",
-        doctorAsignado: null,
-        paciente: "paciente_2",
-        medicamentosRecetados: [],
-        motivos_consulta: "Dolor de espalda",
-        tratamiento: "",
-        clasificacion: "Admitido a Urgencias",
-        hora: "Mon Nov 13 2023 23:45:08 GMT-0500 (hora estándar de Colombia)",
-        createdAt: "2023-11-14T04:45:08.932Z",
-        updatedAt: "2023-11-14T04:45:08.932Z",
-        __v: 0,
-      },
-      {
-        _id: "3",
-        doctorAsignado: null,
-        paciente: "paciente_3",
-        medicamentosRecetados: [],
-        motivos_consulta: "Amildalitis",
-        tratamiento: "",
-        clasificacion: "Dado de Alta con Cita Prioritaria",
-        hora: "Mon Nov 13 2023 23:45:08 GMT-0500 (hora estándar de Colombia)",
-        createdAt: "2023-11-14T04:45:08.932Z",
-        updatedAt: "2023-11-14T04:45:08.932Z",
-        __v: 0,
-      },
-      {
-        _id: "4",
-        doctorAsignado: null,
-        paciente: "paciente_4",
-        medicamentosRecetados: [],
-        motivos_consulta:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nobis corrupti, totam sint qui error asperiores beatae perferendis veritatis. Dolorum optio ex, doloremque suscipit cum quas numquam aut facilis possimus.",
-        tratamiento: "",
-        clasificacion: "Admitido a Urgencias",
-        hora: "Mon Nov 13 2023 23:45:08 GMT-0500 (hora estándar de Colombia)",
-        createdAt: "2023-11-14T04:45:08.932Z",
-        updatedAt: "2023-11-14T04:45:08.932Z",
-        __v: 0,
-      },
-      {
-        _id: "5",
-        doctorAsignado: null,
-        paciente: "paciente_5",
-        medicamentosRecetados: [],
-        motivos_consulta: "Carillas",
-        tratamiento: "",
-        clasificacion: "Dado de Alta con Cita Prioritaria",
-        hora: "Mon Nov 13 2023 23:45:08 GMT-0500 (hora estándar de Colombia)",
-        createdAt: "2023-11-14T04:45:08.932Z",
-        updatedAt: "2023-11-14T04:45:08.932Z",
-        __v: 0,
-      },
-      {
-        _id: "6",
-        doctorAsignado: null,
-        paciente: "paciente_6",
-        medicamentosRecetados: [],
-        motivos_consulta: "Inflamacion de costillas",
-        tratamiento: "",
-        clasificacion: "Dado de Alta con Tratamiento",
-        hora: "Mon Nov 13 2023 23:45:08 GMT-0500 (hora estándar de Colombia)",
-        createdAt: "2023-11-14T04:45:08.932Z",
-        updatedAt: "2023-11-14T04:45:08.932Z",
-        __v: 0,
-      },
+    // const emergencyData = [
+    //   {
+    //     _id: "1",
+    //     doctorAsignado: null,
+    //     paciente: "paciente_1",
+    //     medicamentosRecetados: [],
+    //     motivos_consulta: "Gripa",
+    //     tratamiento: "",
+    //     clasificacion: "Sin atender",
+    //     hora: "Mon Nov 13 2023 23:30:08 GMT-0500 (hora estándar de Colombia)",
+    //     createdAt: "2023-11-14T04:30:08.932Z",
+    //     updatedAt: "2023-11-14T04:30:08.932Z",
+    //     __v: 0,
+    //   },
+    //   {
+    //     _id: "2",
+    //     doctorAsignado: null,
+    //     paciente: "paciente_2",
+    //     medicamentosRecetados: [],
+    //     motivos_consulta: "Dolor de espalda",
+    //     tratamiento: "",
+    //     clasificacion: "Admitido a Urgencias",
+    //     hora: "Mon Nov 13 2023 23:45:08 GMT-0500 (hora estándar de Colombia)",
+    //     createdAt: "2023-11-14T04:45:08.932Z",
+    //     updatedAt: "2023-11-14T04:45:08.932Z",
+    //     __v: 0,
+    //   },
+    //   {
+    //     _id: "3",
+    //     doctorAsignado: null,
+    //     paciente: "paciente_3",
+    //     medicamentosRecetados: [],
+    //     motivos_consulta: "Amildalitis",
+    //     tratamiento: "",
+    //     clasificacion: "Dado de Alta con Cita Prioritaria",
+    //     hora: "Mon Nov 13 2023 23:45:08 GMT-0500 (hora estándar de Colombia)",
+    //     createdAt: "2023-11-14T04:45:08.932Z",
+    //     updatedAt: "2023-11-14T04:45:08.932Z",
+    //     __v: 0,
+    //   },
+    //   {
+    //     _id: "4",
+    //     doctorAsignado: null,
+    //     paciente: "paciente_4",
+    //     medicamentosRecetados: [],
+    //     motivos_consulta:
+    //       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nobis corrupti, totam sint qui error asperiores beatae perferendis veritatis. Dolorum optio ex, doloremque suscipit cum quas numquam aut facilis possimus.",
+    //     tratamiento: "",
+    //     clasificacion: "Admitido a Urgencias",
+    //     hora: "Mon Nov 13 2023 23:45:08 GMT-0500 (hora estándar de Colombia)",
+    //     createdAt: "2023-11-14T04:45:08.932Z",
+    //     updatedAt: "2023-11-14T04:45:08.932Z",
+    //     __v: 0,
+    //   },
+    //   {
+    //     _id: "5",
+    //     doctorAsignado: null,
+    //     paciente: "paciente_5",
+    //     medicamentosRecetados: [],
+    //     motivos_consulta: "Carillas",
+    //     tratamiento: "",
+    //     clasificacion: "Dado de Alta con Cita Prioritaria",
+    //     hora: "Mon Nov 13 2023 23:45:08 GMT-0500 (hora estándar de Colombia)",
+    //     createdAt: "2023-11-14T04:45:08.932Z",
+    //     updatedAt: "2023-11-14T04:45:08.932Z",
+    //     __v: 0,
+    //   },
+    //   {
+    //     _id: "6",
+    //     doctorAsignado: null,
+    //     paciente: "paciente_6",
+    //     medicamentosRecetados: [],
+    //     motivos_consulta: "Inflamacion de costillas",
+    //     tratamiento: "",
+    //     clasificacion: "Dado de Alta con Tratamiento",
+    //     hora: "Mon Nov 13 2023 23:45:08 GMT-0500 (hora estándar de Colombia)",
+    //     createdAt: "2023-11-14T04:45:08.932Z",
+    //     updatedAt: "2023-11-14T04:45:08.932Z",
+    //     __v: 0,
+    //   },
 
-      // ... otros objetos de emergencia
-    ];
-    setData(emergencyData);
+    //   // ... otros objetos de emergencia
+    // ];
   }, []);
 
   // Filtrar la data en diferentes arrays según la clasificación
@@ -215,8 +215,16 @@ export default function Test() {
         <div className="medical-records text-center mx-32">
           {/* Aquí puedes mapear tus registros médicos */}
           <div className="record emergency">
-            {sinAtender.map((data) => {
-              return <div>{data._id}</div>;
+            {sinAtender.map((data, i) => {
+              return (
+                <div key={i}>
+                  <PatientCard
+                    data={data}
+                    array={emergenciasSeleccionadas}
+                    fuctionClick={handleEmergenciaClick}
+                  />
+                </div>
+              );
             })}
             Emergencia sin atender ({sinAtender.length})
           </div>
@@ -241,24 +249,20 @@ export default function Test() {
             Admitido a Urgencias ({admitidoUrgencias.length})
           </div>
           <div className="record discharged-treatment">
-            {altaConTratamiento.map((data) => {
-              return <div>{data._id}</div>;
+            {altaConTratamiento.map((data, i) => {
+              return <div key={i}>{data._id}</div>;
             })}
             Dado de Alta con Tratamiento ({altaConTratamiento.length})
           </div>
           <div className="record discharged-appointment">
-            {altaConCitaPrioritaria.map((data) => {
+            {altaConCitaPrioritaria.map((data, i) => {
               return (
-                <div
-                  key={data._id}
-                  className={`cursor-pointer border p-4 my-2 ${
-                    emergenciasSeleccionadas.find((e) => e._id === data._id)
-                      ? "text-green-500"
-                      : ""
-                  }`}
-                  onClick={() => handleEmergenciaClick(data)}
-                >
-                  {data._id}
+                <div key={i}>
+                  <PatientCard
+                    data={data}
+                    array={emergenciasSeleccionadas}
+                    fuctionClick={handleEmergenciaClick}
+                  />
                 </div>
               );
             })}
