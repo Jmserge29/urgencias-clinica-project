@@ -271,8 +271,8 @@ export default function Test() {
           </div>
         </div>
       </div>
-      <div className="fixed bottom-8 hover:cursor-pointer right-12 text-rose-600 h-14 w-14 rounded-full ">
-        <QueueListIcon />
+      <div className="fixed bottom-8 hover:cursor-pointer right-12 shadow-lg text-rose-600 h-14 w-14 rounded-full ">
+        <QueueListIcon className="h-14" />
       </div>
     </>
   );
