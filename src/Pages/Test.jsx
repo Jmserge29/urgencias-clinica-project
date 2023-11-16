@@ -215,6 +215,7 @@ export default function Test() {
         <div className="medical-records text-center mx-32">
           {/* Aquí puedes mapear tus registros médicos */}
           <div className="record emergency">
+            Emergencia sin atender ({sinAtender.length})
             {sinAtender.map((data, i) => {
               return (
                 <div key={i}>
@@ -226,9 +227,9 @@ export default function Test() {
                 </div>
               );
             })}
-            Emergencia sin atender ({sinAtender.length})
           </div>
           <div className="record admitted">
+            Admitido a Urgencias ({admitidoUrgencias.length})
             {data ? (
               <>
                 {admitidoUrgencias.map((data, i) => {
@@ -246,15 +247,15 @@ export default function Test() {
             ) : (
               "Cargando"
             )}
-            Admitido a Urgencias ({admitidoUrgencias.length})
           </div>
           <div className="record discharged-treatment">
+            Dado de Alta con Tratamiento ({altaConTratamiento.length})
             {altaConTratamiento.map((data, i) => {
               return <div key={i}>{data._id}</div>;
             })}
-            Dado de Alta con Tratamiento ({altaConTratamiento.length})
           </div>
           <div className="record discharged-appointment">
+            Dado de Alta con Cita Prioritaria ({altaConCitaPrioritaria.length})
             {altaConCitaPrioritaria.map((data, i) => {
               return (
                 <div key={i}>
@@ -266,8 +267,13 @@ export default function Test() {
                 </div>
               );
             })}
-            Dado de Alta con Cita Prioritaria ({altaConCitaPrioritaria.length})
           </div>
+        </div>
+        <div>
+          <button className="relative justify-end bg-stone-600 font-medium text-white rounded-3xl">
+            {" "}
+            {":)"}
+          </button>
         </div>
       </div>
     </>
