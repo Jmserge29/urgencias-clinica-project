@@ -23,14 +23,14 @@ function Register() {
         .post(
           "https://urgencias-servidor-project.vercel.app/User/sign-up",
           {
-            nombre: nombre,
-            apellido: apellido,
-            email: email,
-            eps: eps,
-            identificacion: identificacion,
-            edad: edad,
-            telefono: telefono,
-            password : password
+            identificacion : "5645665",
+            password : "123456789",
+            email: "Jhon2@gmail.com",
+            nombre: "Jhon2",
+            apellido: "Doe2",
+            edad: "24",
+            telefono: "3008755416",
+            eps: "Sura"
           }
         )
         .then((res) => {
