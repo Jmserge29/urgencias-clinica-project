@@ -19,14 +19,8 @@ function EmergencyCard({emergency}) {
                   <div className="text-white font-medium text-lg">
                     Fecha: Octubre 10 del 2023 8:30 AM
                   </div>
-                  <div className="text-white font-medium py-2">
-                    Estado:{" "}
-                    <button className="mx-4 bg-white rounded-2xl text-black px-4 py-2">
-                      {urgency.estado}
-                    </button>
-                  </div>
                   <div className="text-white font-medium py-2 mb-6">
-                    Clasificación:{" "}
+                    Estado:{" "}
                     <button className="mx-4 bg-indigo-500 rounded-2xl px-4 py-2">
                       {urgency.clasificacion}
                     </button>
@@ -50,14 +44,6 @@ function EmergencyCard({emergency}) {
                           </dt>
                           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                             {urgency.doctorAsignado}
-                          </dd>
-                        </div>
-                        <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                          <dt className="text-sm font-medium leading-6 text-gray-900">
-                            Recomendaciones
-                          </dt>
-                          <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                            {urgency.recomendaciones}
                           </dd>
                         </div>
                         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">

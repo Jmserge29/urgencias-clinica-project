@@ -7,11 +7,10 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   const [nombre, setNombre] = useState([]);
   const [apellido, setApellido] = useState([]);
+  const [email, setEmail] = useState([]);
   const [eps, setEps] = useState([]);
   const [edad, setEdad] = useState([]);
   const [identificacion, setIdentificacion] = useState([]);
-  const [genero, setGenero] = useState([]);
-  const [direccion, setDireccion] = useState([]);
   const [telefono, setTelefono] = useState([]);
   const [password, setPassword] = useState([]);
   const navigate = useNavigate();
@@ -26,11 +25,10 @@ function Register() {
           {
             nombre: nombre,
             apellido: apellido,
+            email: email,
             eps: eps,
             identificacion: identificacion,
-            genero: genero,
             edad: edad,
-            direccion: direccion,
             telefono: telefono,
             password : password
           }
@@ -49,69 +47,74 @@ function Register() {
   };
   return (
     <>
-      {/* background Gradient Start */}
-      <div
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-        aria-hidden="true"
-      >
-        <div
-          className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#46ffb8] to-[#4c7cff] opacity-40 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-        />
-      </div>
-      <NavBar />
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm mt-24">
+  <div className="relative bg-cyan-500 py-5">
+    <div className="rounded-2xl bg-white mx-auto container">
+      <div className="container grid grid-cols-1 sm:grid-cols-2 h-screen py-4">
+        <div className=" col-span-1 my-2 hidden sm:block">
           <img
-            className="mx-auto h-18 w-auto"
-            src="https://www.clinicageneraldelnorte.com/wp-content/uploads/2019/12/favicon114x114.png"
-            alt="Clinica General Del Norte"
+            className=" rounded-2xl bg-cover h-full ml-5"
+            src="https://www.eltiempo.com/files/article_main_1200/uploads/2020/10/15/5f887bf49e56e.jpeg"
+            alt="RegisterPhoto"
           />
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Registro de tu Cuenta en La Clínica General Del Norte
-          </h2>
         </div>
+        <div className=" col-span-1 flex text-center sm:mt-24">
+          <form className=" p-4 sm:h-1/2 rounded-xl mx-16 text-center flex flex-col w-full">
+          <h3 className="mb-3 text-4xl font-extrabold text-dark-grey-900">Regístrate</h3>
+            <p className="mb-4 text-grey-700">Completa los campos correspondientes</p>
+            <div className="flex items-center mb-3">
+              <hr className="h-0 my-2 border-b border-solid border-grey-500 grow"/>
+            </div>
+            <div className="grid lg:grid-cols-2 grid-cols-1 space-x-1">
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:px-32">
-          <FormRegister
-            createNewPatient={createNewPatient}
-            setNombre={setNombre}
-            setApellido={setApellido}
-            setEps={setEps}
-            setEdad={setEdad}
-            setIdentificacion={setIdentificacion}
-            setGenero={setGenero}
-            setDireccion={setDireccion}
-            setTelefono={setTelefono}
-            nombre={nombre}
-            apellido={apellido}
-            eps={eps}
-            edad={edad}
-            identificacion={identificacion}
-            genero={genero}
-            direccion={direccion}
-            telefono={telefono}
-            password={password}
-            setPassword={setPassword}
-          />
+              <div>
+                <label className="mb-2 text-sm text-start text-grey-900">Identificación *</label>
+                <input value={identificacion} onChange={(e) => setIdentificacion(e.target.value)} type="Number" placeholder="99999999" className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl"/>
+              </div>
+              <div>
+                <label className="mb-2 text-sm text-start text-grey-900">Email *</label>
+                <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder="jhonDoe@gmail.com" className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl"/>
+              </div>
+              <div>
+                <label className="mb-2 text-sm text-start text-grey-900">Ingrese una Contraseña *</label>
+                <input id="password" value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="**************" className="flex items-center w-full px-5 py-4 mb-5 mr-2 text-sm font-medium outline-none focus:bg-blue-200 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl"/>
+              </div>
+              <div>
+                <label className="mb-2 text-sm text-start text-grey-900">Ingrese su Nombre *</label>
+                <input value={nombre} onChange={(e) => setNombre(e.target.value)} type="text" placeholder="Jhon" className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl"/>
+              </div>
+              <div>
+                <label className="mb-2 text-sm text-start text-grey-900">Ingrese su Apellido *</label>
+                <input value={apellido} onChange={(e) => setApellido(e.target.value)} type="text" placeholder="Doe" className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl"/>
+              </div>
+              <div>
+                <label className="mb-2 text-sm text-start text-grey-900">Edad *</label>
+                <input value={edad} onChange={(e) => setEdad(e.target.value)} type="Number" placeholder="99999999" className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl"/>
+              </div>
+              <div>
+                <label className="mb-2 text-sm text-start text-grey-900">Seleccione su EPS *</label>
+                {/* <input value={eps} onChange={(e) => setEps(e.target.value)} type="select" placeholder="99999999" className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl"/> */}
+                <select className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl">
+                  <option selected>Seleccione su EPS</option>
+                  <option value="US">Nueva EPS</option>
+                  <option value="CA">EPS SURA</option>
+                  <option value="FR">Sanitas</option>
+                  <option value="DE">Salud Total</option>
+              </select>
+
+              </div>
+              <div>
+                <label className="mb-2 text-sm text-start text-grey-900">Ingrese un Contacto (Telefono) *</label>
+                <input value={telefono} onChange={(e) => setTelefono(e.target.value)} type="Number" placeholder="300000000" className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-blue-200 mb-7 placeholder:text-gray-700 bg-gray-200 text-gray-900 rounded-2xl"/>
+              </div>
+
+            </div>
+            <button type="button" onClick={createNewPatient} className="w-full px-6 py-5 mb-5 text-sm font-bold leading-none text-white transition duration-300 rounded-2xl hover:bg-purple-blue-600 focus:ring-4 focus:ring-purple-blue-100 bg-cyan-500">Registrarse</button>
+            <p className="text-sm leading-relaxed text-grey-900">Ya estás registrado? <a href="/login" className="font-bold text-grey-700">Inicia sesión</a></p>
+          </form>
         </div>
       </div>
-      {/* background Gradient End */}
-      <div
-        className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-        aria-hidden="true"
-      >
-        <div
-          className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#46ffb8] to-[#4c7cff] opacity-40 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-        />
-      </div>
+    </div>
+    </div>
     </>
   );
 }
