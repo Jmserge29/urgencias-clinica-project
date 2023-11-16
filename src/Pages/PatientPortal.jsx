@@ -2,41 +2,48 @@ import PatientFuctions from "../Components/PatientFuctions";
 import PatientCard from "../Components/PatientCard";
 import axios from "axios";
 import { useState } from "react";
-import EmergencyCard from "../Components/EmergencyCard"
+import EmergencyCard from "../Components/EmergencyCard";
 
 function PatientPortal() {
-  const usuarioJSON = localStorage.getItem('patient');
+  const usuarioJSON = localStorage.getItem("patient");
   const paciente = JSON.parse(usuarioJSON);
-  const [motivos_consulta, setMotivos_consulta] = useState([])
-  const actualizarUSer = async() => {
-    axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${paciente._id}`).then((res) => {
-      console.log("request sended succesly", res.data);
-      const usuarioJSON = JSON.stringify(res.data.usuario);
-      localStorage.setItem('patient', usuarioJSON);
-      window.location.reload();
-    })
-    .catch((err) => {
-      console.log(err);  
-    });
-  }
-  const createUrgency = async() => {
+  const [motivos_consulta, setMotivos_consulta] = useState([]);
+  const actualizarUSer = async () => {
+    axios
+      .get(
+        `https://urgencias-servidor-project.vercel.app/User/getUserById/${paciente._id}`
+      )
+      .then((res) => {
+        console.log("request sended succesly", res.data);
+        const usuarioJSON = JSON.stringify(res.data.usuario);
+        localStorage.setItem("patient", usuarioJSON);
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const createUrgency = async () => {
     try {
       axios
-          .post("https://urgencias-servidor-project.vercel.app/Emergency/createEmergency", {
+        .post(
+          "https://urgencias-servidor-project.vercel.app/Emergency/createEmergency",
+          {
             pacienteId: paciente._id,
             motivos_consulta,
-          })
-          .then((res) => {
-            console.log("request sended succesly", res.data.emergencia);
-            actualizarUSer()
-          })
-          .catch((err) => {
-            console.log(err);  
-          });
+          }
+        )
+        .then((res) => {
+          console.log("request sended succesly", res.data.emergencia);
+          actualizarUSer();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
     <>
@@ -56,12 +63,20 @@ function PatientPortal() {
       <section className="relative py-16 bg-blueGray-200">
         <div className="container mx-auto px-4">
           <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
-            <PatientCard paciente={paciente}/>
-            <div className="mt-10 py-10 border-t border-blueGray-200">
-              {paciente.emergencia_asignada == null ? "" : <EmergencyCard emergency={paciente.emergencia_asignada}/>}
-              
-              <PatientFuctions paciente={paciente} motivos_consulta={motivos_consulta}
-setMotivos_consulta={setMotivos_consulta} createUrgency={createUrgency} />
+            <PatientCard paciente={paciente} />
+            <div className="mt-10 py-10 border-t border-blueGray-100">
+              {paciente.emergencia_asignada == null ? (
+                ""
+              ) : (
+                <EmergencyCard emergency={paciente.emergencia_asignada} />
+              )}
+
+              <PatientFuctions
+                paciente={paciente}
+                motivos_consulta={motivos_consulta}
+                setMotivos_consulta={setMotivos_consulta}
+                createUrgency={createUrgency}
+              />
             </div>
           </div>
         </div>

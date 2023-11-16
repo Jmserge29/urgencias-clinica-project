@@ -2,6 +2,7 @@ import SideBar from "../Components/Sidebar";
 import PatientCard from "../Components/Card/Portal/PatientCard";
 import React, { useState, useEffect } from "react";
 import Isotope from "isotope-layout";
+import axios from "axios";
 
 export default function Test() {
   const [isotope, setIsotope] = useState(null);
@@ -9,15 +10,25 @@ export default function Test() {
   const [emergenciasSeleccionadas, setEmergenciasSeleccionadas] = useState([]);
   const [data, setData] = useState([]); // Supongamos que recibes la data como un estado
 
-  const getEmergenciesData = () => {
+  const getEmergenciesData = async () => {
     try {
-      
+      await axios
+        .get(
+          "https://urgencias-servidor-project.vercel.app/Emergency/getEmergencies"
+        )
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (error) {
-      
+      console.log("An error in the request");
     }
-  }
+  };
 
   useEffect(() => {
+    getEmergenciesData();
     filterRecords(".emergency");
 
     const emergencyData = [
@@ -65,7 +76,8 @@ export default function Test() {
         doctorAsignado: null,
         paciente: "paciente_4",
         medicamentosRecetados: [],
-        motivos_consulta: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nobis corrupti, totam sint qui error asperiores beatae perferendis veritatis. Dolorum optio ex, doloremque suscipit cum quas numquam aut facilis possimus.",
+        motivos_consulta:
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A nobis corrupti, totam sint qui error asperiores beatae perferendis veritatis. Dolorum optio ex, doloremque suscipit cum quas numquam aut facilis possimus.",
         tratamiento: "",
         clasificacion: "Admitido a Urgencias",
         hora: "Mon Nov 13 2023 23:45:08 GMT-0500 (hora estándar de Colombia)",
@@ -214,7 +226,11 @@ export default function Test() {
                 {admitidoUrgencias.map((data, i) => {
                   return (
                     <div key={i}>
-                      <PatientCard data={data} array={emergenciasSeleccionadas} fuctionClick={handleEmergenciaClick}/>
+                      <PatientCard
+                        data={data}
+                        array={emergenciasSeleccionadas}
+                        fuctionClick={handleEmergenciaClick}
+                      />
                     </div>
                   );
                 })}
