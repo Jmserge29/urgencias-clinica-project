@@ -21,7 +21,7 @@ function Register() {
     try {
       await axios
         .post(
-          "https://urgencias-servidor-project.vercel.app/User/createPatient",
+          "https://urgencias-servidor-project.vercel.app/User/sign-up",
           {
             nombre: nombre,
             apellido: apellido,
