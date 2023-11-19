@@ -44,8 +44,6 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
                         
                         </pre>
                     </div>
-
-                    
                   </div>
                   <div className="mt-2 my-8">
                     <div className=" rounded-xl my-3 flex justify-center items-center bg-cyan-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">

@@ -45,7 +45,7 @@ function PatientCard({ data, array, fuctionClick }) {
                 </span>
               </h4>
               {/* <h4 className='text-xl py-2'>Paciente : <span className='text-green-600  font-semibold'>[ Saiko Gutierrez ]</span></h4> */}
-              <p className=" text-justify text-sm flex items-center">{data.motivos_consulta}</p>
+              <p className=" text-justify text-sm flex items-center my-3">{data.motivos_consulta}</p>
             </div>
             <div className=" col-span-2 font-mono bg-rose-100 rounded-md">
               <h4 className="text-xl font-semibold py-2">Datos Paciente : </h4>
