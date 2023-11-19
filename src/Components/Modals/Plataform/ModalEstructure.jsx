@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
-function ModalEstructure({ isOpen, closeModal }) {
+function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -37,6 +37,17 @@ function ModalEstructure({ isOpen, closeModal }) {
                     ¿ Que tipo de estructura quieres aplicar ?
                   </Dialog.Title>
                   <div className="mt-2 my-8">
+                    <span className=" font-medium text-center">Pacientes Seleccionados: ({emergenciasSeleccionadas.length})</span>
+                    <div className="rounded-md mt-2 shadow-lg bg-slate-900 text-white w-full h-2/3 md:px-8 md:py-8">
+                        <pre>
+                        {emergenciasSeleccionadas? <>{JSON.stringify(emergenciasSeleccionadas,null,2)}</>:  "Cargando"}
+                        
+                        </pre>
+                    </div>
+
+                    
+                  </div>
+                  <div className="mt-2 my-8">
                     <div className=" rounded-xl my-3 flex justify-center items-center bg-cyan-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">
                         Pilas
                     </div>
@@ -46,9 +57,7 @@ function ModalEstructure({ isOpen, closeModal }) {
                     <div className=" rounded-xl my-3 flex justify-center items-center bg-indigo-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">
                         Arbol Binario
                     </div>
-
                   </div>
-
                   <div className="mt-4 text-center space-x-5">
                     <button
                       type="button"

@@ -192,7 +192,7 @@ export default function Test() {
       <div onClick={() => openModal()} className="fixed bottom-8 hover:cursor-pointer right-12 shadow-lg text-rose-600 flex justify-center items-center h-20 w-20 rounded-full hover:scale-110 transition delay-150 duration-300 ease-in-out  ">
         <QueueListIcon className="h-20 p-3" />
       </div>
-      <ModalEstructure closeModal={closeModal} isOpen={isOpen} />
+      <ModalEstructure closeModal={closeModal} isOpen={isOpen} emergenciasSeleccionadas={emergenciasSeleccionadas}/>
     </>
   );
 }
