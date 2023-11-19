@@ -39,7 +39,7 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
                   <div className="mt-2 my-8">
                     <span className=" font-medium text-center">Pacientes Seleccionados: ({emergenciasSeleccionadas.length})</span>
                     <div className="rounded-md mt-2 shadow-lg bg-slate-900 text-white w-full h-2/3 md:px-8 md:py-8">
-                        <pre>
+                        <pre className="text-xs">
                         {emergenciasSeleccionadas? <>{JSON.stringify(emergenciasSeleccionadas,null,2)}</>:  "Cargando"}
                         
                         </pre>
