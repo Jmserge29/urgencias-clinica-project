@@ -33,21 +33,27 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
 
     // Método para anadir elementos  (ARBOL)
     const methodArbolInsert = async() => {
-        const promises = emergenciasSeleccionadas.map(async (emergencia) => {
-            try {
-                const response = await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${emergencia.paciente}`);
-                console.log("Informacion de usuario: ", response.data.usuario);
-                const user = response.data.usuario;
-                myCola.InsertarElemento({ user: user, emergencia: emergencia });
+        try {
+            await Promise.all(
+              emergenciasSeleccionadas.map(async (emergencia) => {
+                try {
+                  const response = await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${emergencia.paciente}`);
+                  console.log("Informacion de usuario: ", response.data.usuario);
+                  const user = response.data.usuario;
+                  myCola.InsertarElemento({ user: user, emergencia: emergencia });
                 } catch (error) {
-                console.error("Error al obtener información de usuario:", error);
+                  console.error("Error al obtener información de usuario:", error);
                 }
-            });
-
-            await Promise.all(promises);
+              })
+            );
+        
+            // Ahora puedes imprimir los árboles después de que todas las peticiones se hayan completado
             myArbol.inorder();
             myArbol.preorder();
             myArbol.postorder();
+          } catch (error) {
+            console.error("Error al procesar las emergencias:", error);
+          }
     }
 
   return (
@@ -82,7 +88,7 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
                     as="h3"
                     className="text-xl py-2 mb-4 text-center font-medium leading-6 text-gray-900"
                   >
-                    ¿ Que tipo de estructura quieres aplicar ? Version1.0.0
+                    ¿ Que tipo de estructura quieres aplicar ?
                   </Dialog.Title>
                   <div className="mt-2 my-8">
                     <span className=" font-medium text-center">Pacientes Seleccionados: ({emergenciasSeleccionadas.length})</span>
