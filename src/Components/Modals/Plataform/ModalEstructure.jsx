@@ -3,6 +3,8 @@ import { Fragment, useState } from "react";
 import Pila from "../../../Estructures/Pila";
 import Cola from "../../../Estructures/Cola";
 import ArbolBinario from "../../../Estructures/ArbolBinario"
+import axios from "axios";
+
 function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
     const [estructure, setEstructure] = useState([])
     //Definiendo Estructuras
@@ -31,13 +33,15 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
 
     // Método para anadir elementos  (ARBOL)
     const methodArbolInsert = () => {
-        myArbol.insert(4);
-        myArbol.insert(2);
-        myArbol.insert(6);
-        myArbol.insert(1);
-        myArbol.insert(3);
-        myArbol.insert(5);
-        myArbol.insert(7);
+        emergenciasSeleccionadas.map(async(emergencia) => {
+            var user
+            await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${emergencia.paciente}`)
+                .then((res) => {
+                console.log("Informacion de usuario: ", res.data.usuario);
+                user=res.data.usuario
+            })
+            myCola.InsertarElemento({user: user, emergencia: emergencia})
+        })
         myArbol.inorder();
         myArbol.preorder();
         myArbol.postorder();
