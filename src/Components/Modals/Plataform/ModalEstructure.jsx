@@ -1,4 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
+import { useState } from "react";
 import { Fragment } from "react";
 import Pila from "../../../Estructures/Pila";
 import Cola from "../../../Estructures/Cola";
