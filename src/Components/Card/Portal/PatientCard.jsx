@@ -12,7 +12,7 @@ function PatientCard({ data, array, fuctionClick }) {
           `https://urgencias-servidor-project.vercel.app/User/getUserById/${data.paciente}`
         )
         .then((res) => {
-          console.log("Informacion de usuario: ", res.data.usuario);
+          // console.log("Informacion de usuario: ", res.data.usuario);
           setUser(res.data.usuario);
         })
         .catch((err) => {
