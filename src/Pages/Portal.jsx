@@ -9,7 +9,8 @@ function Portal() {
   // Recupera el objeto de usuario del localStorage
   const usuarioJSON = localStorage.getItem('doctor');
   const doctor = JSON.parse(usuarioJSON);
-  useEffect(async() => {
+
+  const getIfnormationUser = async() => {
     try {
       await axios
       .get(
@@ -26,6 +27,9 @@ function Portal() {
     } catch (error) {
       console.log("error error")
     }
+  }
+  useEffect(async() => {
+    getIfnormationUser()
   }, [])
   return (<>
     <SideBar/>
