@@ -18,9 +18,9 @@ export default class ArbolBinario {
 
     const nodeValue = typeof data === 'object' ? data.edad : data;
 
-    if (nodeValue < node.data.edad) {
+    if (nodeValue <= node.data.edad) {
       node.left = this._insertNode(node.left, data);
-    } else if (nodeValue > node.data.edad) {
+    } else {
       node.right = this._insertNode(node.right, data);
     }
 
@@ -39,7 +39,7 @@ export default class ArbolBinario {
   _inorderTraversal(node, result) {
     if (node) {
       this._inorderTraversal(node.left, result);
-      result.push(node.data);
+      result.push(node.data.edad);
       this._inorderTraversal(node.right, result);
     }
   }
@@ -55,7 +55,7 @@ export default class ArbolBinario {
   // Método auxiliar para realizar el recorrido Preorder de manera recursiva
   _preorderTraversal(node, result) {
     if (node) {
-      result.push(node.data);
+      result.push(node.data.edad);
       this._preorderTraversal(node.left, result);
       this._preorderTraversal(node.right, result);
     }
@@ -74,7 +74,7 @@ export default class ArbolBinario {
     if (node) {
       this._postorderTraversal(node.left, result);
       this._postorderTraversal(node.right, result);
-      result.push(node.data);
+      result.push(node.data.edad);
     }
   }
 }

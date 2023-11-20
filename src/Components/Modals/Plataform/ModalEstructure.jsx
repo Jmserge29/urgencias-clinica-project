@@ -39,17 +39,22 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
                 try {
                   const response = await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${emergencia.paciente}`);
                   console.log("Informacion de usuario: ", response.data.usuario);
-                  myCola.InsertarElemento(response.data.usuario);
+                  myArbol.insert(response.data.usuario);
                 } catch (error) {
                   console.error("Error al obtener información de usuario:", error);
                 }
               })
             );
         
-            // Ahora puedes imprimir los árboles después de que todas las peticiones se hayan completado
-            myArbol.inorder();
-            myArbol.preorder();
-            myArbol.postorder();
+            // Imprimir el árbol en diferentes órdenes
+            const inorderResult = myArbol.inorder();
+            const preorderResult = myArbol.preorder();
+            const postorderResult = myArbol.postorder();
+
+            // Imprimir los resultados
+            console.log("Inorder:", inorderResult); 
+            console.log("Preorder:", preorderResult);
+            console.log("Postorder:", postorderResult);
           } catch (error) {
             console.error("Error al procesar las emergencias:", error);
           }
