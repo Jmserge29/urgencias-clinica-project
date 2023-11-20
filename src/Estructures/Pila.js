@@ -33,5 +33,7 @@ export default class Pila {
     }
 
     console.log("Pila:", stackArray.join(" -> "));
+    // Devolver la pila en forma de array
+    return stackArray;
   }
 }

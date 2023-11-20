@@ -1,14 +1,12 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { useState } from "react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import Pila from "../../../Estructures/Pila";
 import Cola from "../../../Estructures/Cola";
-import ModalPrevView from "./ModalPrevView";
 function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
+    const [estructure, setEstructure] = useState([])
     //Definiendo Estructuras
     const myPila = new Pila()
     const myCola = new Cola()
-    console.log("eSTRUCTURA: ", myPila)
 
     // Método para anadir elementos a la (PILA)
     const methodStackInsert = () => {
@@ -16,9 +14,8 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
         emergenciasSeleccionadas.map((emergencia) => {
             myPila.InsertarElemento(emergencia._id)
         })
-        myPila.ImprimirPila()
-
-        openModalV()
+        const array = myPila.ImprimirPila()
+        console.log("JAAJAJAJAJAJAJA: ", array)
     }
 
     // Método para anadir elementos a la (COLA)
@@ -27,22 +24,8 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
             myCola.InsertarElemento(emergencia._id)
         })
         myCola.ImprimirCola()
-
-        openModalV()
     }
 
-    let [isOpenV, setIsOpenV] = useState(false);
-
-
-    function closeModalV() {
-      setIsOpenV(false);
-    }
-  
-    function openModalV() {
-      setIsOpenV(true);
-    }
-  
-  
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -118,7 +101,6 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
           </div>
         </Dialog>
       </Transition>
-      <ModalPrevView closeModalV={closeModalV} isOpenV={isOpenV} />
     </>
   );
 }
