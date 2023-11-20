@@ -17,8 +17,7 @@ function Portal() {
         `https://urgencias-servidor-project.vercel.app/User/getUserById/${doctor._id}`
       )
       .then((res) => {
-        console.log("Se encontro: ", res.data)
-        const usuarioJSON = JSON.stringify(res.data.user);
+        const usuarioJSON = JSON.stringify(res.data.usuario);
           localStorage.setItem('doctor', usuarioJSON);
       })
       .catch((err) => {
