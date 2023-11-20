@@ -15,7 +15,7 @@ function CardPatient({urgencia}) {
           <article className="rounded-xl mt-8 bg-white p-3 h-96 mx-4 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
       <a href="#">
         <div className="relative flex items-end overflow-hidden rounded-xl">
-          <img className='h-72 w-full bg-cover' src="https://img.freepik.com/fotos-premium/icono-interfaz-usuario-premium-representacion-3d-sobre-fondo-aislado_150525-2529.jpg?w=2000" alt="Background User Photo" />
+          <img className='h-72 w-full bg-cover' src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&quality=40" alt="Background User Photo" />
           
         </div>
         <ElementCardUser paciente={urgency.paciente}/>
