@@ -17,7 +17,7 @@ function Portal() {
         `https://urgencias-servidor-project.vercel.app/User/getUserById/${doctor._id}`
       )
       .then((res) => {
-        console.log("Se encontro")
+        console.log("Se encontro: ", res.data.user)
         const usuarioJSON = JSON.stringify(res.data.user);
           localStorage.setItem('doctor', usuarioJSON);
       })
@@ -30,7 +30,7 @@ function Portal() {
   }
   useEffect(async() => {
     getIfnormationUser()
-  }, [])
+  })
   return (<>
     <SideBar/>
     <div className='sm:ml-44 mt-16 sm:mr-12'>
