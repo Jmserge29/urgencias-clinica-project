@@ -18,9 +18,9 @@ function CardPatient({urgencia}) {
           <img className='h-72 w-full bg-cover' src="https://img.freepik.com/fotos-premium/icono-interfaz-usuario-premium-representacion-3d-sobre-fondo-aislado_150525-2529.jpg?w=2000" alt="Background User Photo" />
           
         </div>
-        {/* <ElementCardUser paciente={urgency.paciente}/> */}
+        <ElementCardUser paciente={urgency.paciente}/>
         <div>
-            <span className='mt-1 flex justify-center items-center rounded-2xl bg-indigo-500 px-3 py-2 font-semibold text-lg text-white'>{urgency.clasificacion}</span>
+            <span className=' mt-4 flex justify-center items-center rounded-2xl bg-indigo-500 px-3 py-2 font-semibold text-lg text-white'>{urgency.clasificacion}</span>
         </div>
 
       </a>
