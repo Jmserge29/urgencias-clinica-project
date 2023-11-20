@@ -43,5 +43,6 @@ export default class Cola {
     }
 
     console.log("Cola:", queueArray.join(" -> "));
+    return queueArray
   }
 }

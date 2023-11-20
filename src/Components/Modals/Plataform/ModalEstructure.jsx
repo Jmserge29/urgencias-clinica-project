@@ -2,11 +2,13 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import Pila from "../../../Estructures/Pila";
 import Cola from "../../../Estructures/Cola";
+import ArbolBinario from "../../../Estructures/ArbolBinario"
 function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
     const [estructure, setEstructure] = useState([])
     //Definiendo Estructuras
     const myPila = new Pila()
     const myCola = new Cola()
+    const myArbol = new ArbolBinario()
 
     // Método para anadir elementos a la (PILA)
     const methodStackInsert = () => {
@@ -15,7 +17,7 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
             myPila.InsertarElemento(emergencia._id)
         })
         const array = myPila.ImprimirPila()
-        console.log("JAAJAJAJAJAJAJA: ", array)
+        setEstructure(array)
     }
 
     // Método para anadir elementos a la (COLA)
@@ -23,7 +25,22 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
         emergenciasSeleccionadas.map((emergencia) => {
             myCola.InsertarElemento(emergencia._id)
         })
-        myCola.ImprimirCola()
+        const array = myCola.ImprimirCola()
+        setEstructure(array)
+    }
+
+    // Método para anadir elementos  (ARBOL)
+    const methodArbolInsert = () => {
+        myArbol.insert(4);
+        myArbol.insert(2);
+        myArbol.insert(6);
+        myArbol.insert(1);
+        myArbol.insert(3);
+        myArbol.insert(5);
+        myArbol.insert(7);
+        myBinaryTree.inorder();
+        myBinaryTree.preorder();
+        myBinaryTree.postorder();
     }
 
   return (
@@ -75,7 +92,7 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
                     <div onClick={() => methodQueueInsert()} className=" rounded-xl my-3 flex justify-center items-center bg-blue-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">
                         Colas
                     </div>
-                    <div className=" rounded-xl my-3 flex justify-center items-center bg-indigo-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">
+                    <div onClick={()=> methodArbolInsert()} className=" rounded-xl my-3 flex justify-center items-center bg-indigo-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">
                         Arbol Binario
                     </div>
                   </div>
