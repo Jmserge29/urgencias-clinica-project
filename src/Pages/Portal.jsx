@@ -17,7 +17,7 @@ function Portal() {
         `https://urgencias-servidor-project.vercel.app/User/getUserById/${doctor._id}`
       )
       .then((res) => {
-        console.log("Se encontro: ", res.data.user)
+        console.log("Se encontro: ", res.data)
         const usuarioJSON = JSON.stringify(res.data.user);
           localStorage.setItem('doctor', usuarioJSON);
       })
@@ -35,7 +35,7 @@ function Portal() {
     <SideBar/>
     <div className='sm:ml-44 mt-16 sm:mr-12'>
       {/* Header Section */}
-      <h2 className='ml-8 my-4 text-5xl font-semibold'>Panel Doctor </h2>
+      <h2 className='ml-8 my-4 text-5xl font-semibold'>Panel Doctor 1</h2>
       <hr className='border-2 border-rose-500' />
       <div className='mt-5 grid grid-cols-6'>
         <ProfileSection doctor={doctor}/>
