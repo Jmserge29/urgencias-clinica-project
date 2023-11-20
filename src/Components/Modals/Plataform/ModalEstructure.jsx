@@ -39,8 +39,7 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
                 try {
                   const response = await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${emergencia.paciente}`);
                   console.log("Informacion de usuario: ", response.data.usuario);
-                  const user = response.data.usuario;
-                  myCola.InsertarElemento({ user: user, emergencia: emergencia });
+                  myCola.InsertarElemento(response.data.usuario);
                 } catch (error) {
                   console.error("Error al obtener información de usuario:", error);
                 }
