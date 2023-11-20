@@ -32,19 +32,22 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
     }
 
     // Método para anadir elementos  (ARBOL)
-    const methodArbolInsert = () => {
-        emergenciasSeleccionadas.map(async(emergencia) => {
-            var user
-            await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${emergencia.paciente}`)
-                .then((res) => {
-                console.log("Informacion de usuario: ", res.data.usuario);
-                user=res.data.usuario
-            })
-            myCola.InsertarElemento({user: user, emergencia: emergencia})
-        })
-        myArbol.inorder();
-        myArbol.preorder();
-        myArbol.postorder();
+    const methodArbolInsert = async() => {
+        const promises = emergenciasSeleccionadas.map(async (emergencia) => {
+            try {
+                const response = await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${emergencia.paciente}`);
+                console.log("Informacion de usuario: ", response.data.usuario);
+                const user = response.data.usuario;
+                myCola.InsertarElemento({ user: user, emergencia: emergencia });
+                } catch (error) {
+                console.error("Error al obtener información de usuario:", error);
+                }
+            });
+
+            await Promise.all(promises);
+            myArbol.inorder();
+            myArbol.preorder();
+            myArbol.postorder();
     }
 
   return (
@@ -79,7 +82,7 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
                     as="h3"
                     className="text-xl py-2 mb-4 text-center font-medium leading-6 text-gray-900"
                   >
-                    ¿ Que tipo de estructura quieres aplicar ?
+                    ¿ Que tipo de estructura quieres aplicar ? Version1.0.0
                   </Dialog.Title>
                   <div className="mt-2 my-8">
                     <span className=" font-medium text-center">Pacientes Seleccionados: ({emergenciasSeleccionadas.length})</span>
