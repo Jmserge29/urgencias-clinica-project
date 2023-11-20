@@ -13,7 +13,7 @@ export default class ArbolBinario {
   // Método auxiliar para insertar un nodo en el árbol binario de manera recursiva
   _insertNode(node, data) {
     if (!node) {
-      return new BinaryTreeNode(data);
+      return new NodeArbolBinario(data);
     }
 
     const nodeValue = typeof data === 'object' ? data.edad : data;
