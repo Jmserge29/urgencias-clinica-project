@@ -38,9 +38,9 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
         myArbol.insert(3);
         myArbol.insert(5);
         myArbol.insert(7);
-        myBinaryTree.inorder();
-        myBinaryTree.preorder();
-        myBinaryTree.postorder();
+        myArbol.inorder();
+        myArbol.preorder();
+        myArbol.postorder();
     }
 
   return (
