@@ -12,7 +12,7 @@ function ElementCardUser({paciente}) {
       loadDataUser()
   return (<>
     <div className="flex my-3 justify-center items-center text-lg font-medium">
-      Hellow
+      {user.nombre}
     </div></>
   );
 }
