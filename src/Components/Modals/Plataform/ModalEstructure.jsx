@@ -38,27 +38,41 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
               emergenciasSeleccionadas.map(async (emergencia) => {
                 try {
                   const response = await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${emergencia.paciente}`);
-                  console.log("Informacion de usuario: ", response.data.usuario);
                   myArbol.insert(response.data.usuario);
                 } catch (error) {
                   console.error("Error al obtener información de usuario:", error);
                 }
               })
             );
-        
-            // Imprimir el árbol en diferentes órdenes
             const inorderResult = myArbol.inorder();
-            const preorderResult = myArbol.preorder();
-            const postorderResult = myArbol.postorder();
 
             // Imprimir los resultados
             console.log("Inorder:", inorderResult); 
-            console.log("Preorder:", preorderResult);
-            console.log("Postorder:", postorderResult);
+            setEstructure(inorderResult)
           } catch (error) {
             console.error("Error al procesar las emergencias:", error);
           }
     }
+
+    const aplicateEstructure = async() => {
+      const emergencyJSON = JSON.stringify(estructure);
+      localStorage.setItem('emergencies', emergencyJSON);
+      // Recupera el objeto de usuario del localStorage
+      const usuarioJSON = localStorage.getItem('doctor');
+      const doctor = JSON.parse(usuarioJSON);
+      try {
+        await axios.post(`https://urgencias-servidor-project.vercel.app/User/insertEmergencyByUser/${doctor._id}`, {
+          emergencias: estructure
+        }).then((res) => {
+          console.log(res.data)
+        }).catch((err) => {
+          console.log(err)
+        })
+      } catch (error) {
+        console.error("Error al aplicar las estructuras:", error);
+      }
+    }
+  
 
   return (
     <>
@@ -123,6 +137,7 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
                     </button>
 
                     <button
+                    onClick={() => aplicateEstructure()}
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                     >

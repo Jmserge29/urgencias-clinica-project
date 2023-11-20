@@ -44,31 +44,6 @@ export default class ArbolBinario {
     }
   }
 
-  // Método para imprimir el árbol en preorden (Preorder traversal)
-  preorder() {
-    const result = [];
-    this._preorderTraversal(this.root, result);
-    console.log("Preorder:", result.join(" -> "));
-    return result;
-  }
-
-  // Método auxiliar para realizar el recorrido Preorder de manera recursiva
-  _preorderTraversal(node, result) {
-    if (node) {
-      result.push(node.data.edad);
-      this._preorderTraversal(node.left, result);
-      this._preorderTraversal(node.right, result);
-    }
-  }
-
-  // Método para imprimir el árbol en postorden (Postorder traversal)
-  postorder() {
-    const result = [];
-    this._postorderTraversal(this.root, result);
-    console.log("Postorder:", result.join(" -> "));
-    return result;
-  }
-
   // Método auxiliar para realizar el recorrido Postorder de manera recursiva
   _postorderTraversal(node, result) {
     if (node) {
