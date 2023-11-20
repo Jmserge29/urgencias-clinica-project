@@ -10,17 +10,22 @@ function Portal() {
   const usuarioJSON = localStorage.getItem('doctor');
   const doctor = JSON.parse(usuarioJSON);
   useEffect(async() => {
-    await axios
-        .get(
-          `https://urgencias-servidor-project.vercel.app/User/getUserById/${doctor._id}`
-        )
-        .then((res) => {
-          const usuarioJSON = JSON.stringify(res.data.user);
-            localStorage.setItem('doctor', usuarioJSON);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    try {
+      await axios
+      .get(
+        `https://urgencias-servidor-project.vercel.app/User/getUserById/${doctor._id}`
+      )
+      .then((res) => {
+        console.log("Se encontro")
+        const usuarioJSON = JSON.stringify(res.data.user);
+          localStorage.setItem('doctor', usuarioJSON);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    } catch (error) {
+      console.log("error error")
+    }
   }, [])
   return (<>
     <SideBar/>
