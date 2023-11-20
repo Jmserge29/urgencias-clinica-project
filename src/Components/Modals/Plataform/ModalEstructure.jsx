@@ -1,7 +1,29 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-
+import Pila from "../../../Estructures/Pila";
+import Cola from "../../../Estructures/Cola";
 function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
+    //Definiendo Estructuras
+    const myPila = new Pila()
+    const myCola = new Cola()
+
+    // Método para anadir elementos a la (PILA)
+    const methodStackInsert = () => {
+        // Se recorre el array de todas las emergencias y se almacena el ID de la emergenica en la PILA
+        emergenciasSeleccionadas.map((emergencia) => {
+            myPila.InsertarElemento(emergencia._id)
+        })
+        myPila.ImprimirPila()
+    }
+
+    // Método para anadir elementos a la (COLA)
+    const methodQueueInsert = () => {
+        emergenciasSeleccionadas.map((emergencia) => {
+            myCola.InsertarElemento(emergencia._id)
+        })
+        myCola.ImprimirCola()
+    }
+  
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -39,17 +61,16 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
                   <div className="mt-2 my-8">
                     <span className=" font-medium text-center">Pacientes Seleccionados: ({emergenciasSeleccionadas.length})</span>
                     <div className="rounded-md mt-2 shadow-lg bg-slate-900 text-white w-full h-2/3 md:px-8 md:py-8">
-                        <pre className="text-xs overflow-x-auto">
+                        <pre className="text-xs">
                         {emergenciasSeleccionadas? <>{JSON.stringify(emergenciasSeleccionadas,null,2)}</>:  "Cargando"}
-                        
                         </pre>
                     </div>
                   </div>
                   <div className="mt-2 my-8">
-                    <div className=" rounded-xl my-3 flex justify-center items-center bg-cyan-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">
+                    <div onClick={() => methodStackInsert()} className=" rounded-xl my-3 flex justify-center items-center bg-cyan-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">
                         Pilas
                     </div>
-                    <div className=" rounded-xl my-3 flex justify-center items-center bg-blue-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">
+                    <div onClick={() => methodQueueInsert()} className=" rounded-xl my-3 flex justify-center items-center bg-blue-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">
                         Colas
                     </div>
                     <div className=" rounded-xl my-3 flex justify-center items-center bg-indigo-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">

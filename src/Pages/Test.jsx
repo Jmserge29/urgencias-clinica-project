@@ -6,12 +6,14 @@ import axios from "axios";
 import { QueueListIcon } from "@heroicons/react/24/solid";
 import ModalEstructure from "../Components/Modals/Plataform/ModalEstructure";
 
+
 export default function Test() {
   const [isotope, setIsotope] = useState(null);
   const [option, setOption] = useState(".emergency");
   const [emergenciasSeleccionadas, setEmergenciasSeleccionadas] = useState([]);
   const [data, setData] = useState([]); 
   let [isOpen, setIsOpen] = useState(false);
+
 
   function closeModal() {
     setIsOpen(false);
