@@ -41,7 +41,7 @@ function Portal() {
         <ProfileInformation doctor={doctor}/>
         
       </div>
-      <h2 className='ml-8 mt-12 text-xl font-semibold'>Emergencias Asignadas</h2>
+      <h2 className='ml-8 mt-12 text-xl font-semibold'>Emergencias Seleccionadas</h2>
         <div className='grid grid-cols-4 px-2  mb-32'>
           {doctor.emergencias_asignadas.map((data, i) => {
             return(
