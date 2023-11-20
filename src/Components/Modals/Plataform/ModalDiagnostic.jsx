@@ -21,10 +21,6 @@ function ModalDiagnostic({isOpen, setIsOpen}) {
           <div className="fixed inset-0 bg-black/30" />
         </Transition.Child>
 
-        {/*
-          ...and another Transition.Child to apply a separate transition
-          to the contents.
-        */}
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
