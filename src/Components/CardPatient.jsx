@@ -8,7 +8,6 @@ function CardPatient({urgencia}) {
   let [isOpen, setIsOpen] = useState(false);
   const [userInformation, setuserInformation] = useState([])
 
-  console.log("Paciente cole: ", userInformation)
   function closeModal() {
     setIsOpen(false);
   }
@@ -38,7 +37,7 @@ function CardPatient({urgencia}) {
 
       </a>
     </article>
-    <ModalDiagnostic user={userInformation} isOpen={isOpen} closeModal={closeModal}/>
+    <ModalDiagnostic urgency={urgency} user={userInformation} isOpen={isOpen} closeModal={closeModal}/>
     </>
   )
 }

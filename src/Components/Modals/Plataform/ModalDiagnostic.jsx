@@ -18,7 +18,7 @@ const plans = [
   },
 ];
 
-function ModalDiagnostic({ isOpen, closeModal, user }) {
+function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
   const [selected, setSelected] = useState(plans[0]);
   const [listMedicines, setListMedicines] = useState([])
   const [apiMedicines, setapiMedicines] = useState([])
@@ -104,20 +104,16 @@ function ModalDiagnostic({ isOpen, closeModal, user }) {
                         </div>
                         <div className=" col-span-2 my-8 ml-4">
                           <h2 className="mb-3 font-bold text-2xl font-mono">
-                            {user.nombre}
+                            {user.nombre} {user.apellido}
                           </h2>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Distinctio temporibus totam quisquam ad aperiam.
-                          Deserunt, p
+                          El paciente identificado con el número de cédula de ciudadanía {user.identificacion}, registrado en la EPS {user.eps}, con número de contacto {user.telefono} se encuentra en sala de urgencias presentando los siguientes sintomas: 
                         </div>
                         <div className=" col-span-5">
                           <h2 className=" text-center mb-3 font-bold text-lg font-mono">
                             Motivos de consulta
                           </h2>
                           <p className=" text-justify">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Distinctio temporibus totam quisquam ad
-                            aperiam. Deserunt, p
+                            {urgency.motivos_consulta}
                           </p>
                         </div>
                       </div>
@@ -126,15 +122,13 @@ function ModalDiagnostic({ isOpen, closeModal, user }) {
                           <h4 className="text-lg font-semibold text-white flex justify-center">
                             Historial Clínico
                           </h4>
-                          <div className="bg-white h-20 rounded-xl mx-8 my-4">
-                            H
-                          </div>
-                          <div className="bg-white h-20 rounded-xl mx-8 my-4">
-                            H
-                          </div>
-                          <div className="bg-white h-20 rounded-xl mx-8 my-4">
-                            H
-                          </div>
+                            {user.historialMedico.map((data, i) => {
+                              return(
+                                <div key={i} className="bg-white h-20 rounded-xl mx-8 my-4 px-2">
+                                  Historial Clinico
+                                </div>
+                              )
+                            })}
                         </div>
                       </div>
                     </div>
