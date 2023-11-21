@@ -2,14 +2,6 @@ import { useState, Fragment, useEffect } from "react";
 import { Dialog, Transition, RadioGroup, Listbox } from "@headlessui/react";
 import {  ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import axios from "axios";
-const people = [
-  { name: 'Wade Cooper' },
-  { name: 'Arlene Mccoy' },
-  { name: 'Devon Webb' },
-  { name: 'Tom Cook' },
-  { name: 'Tanya Fox' },
-  { name: 'Hellen Schmidt' },
-]
 
 const plans = [
   {
@@ -28,7 +20,7 @@ const plans = [
 
 function ModalDiagnostic({ isOpen, closeModal }) {
   const [selected, setSelected] = useState(plans[0]);
-  const [selectedMedicine, setSelectedMedicine] = useState(people[0])
+  const [selectedMedicine, setSelectedMedicine] = useState(apiMedicines[0])
   const [listMedicines, setListMedicines] = useState([])
   const [apiMedicines, setapiMedicines] = useState([])
   
@@ -241,7 +233,7 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                                 leaveTo="opacity-0"
                               >
                                 <Listbox.Options className="absolute mt-1 max-h-28 w-full overflow-auto rounded-md overflow-y-auto bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
-                                  {people.map((person, personIdx) => (
+                                  {apiMedicines.map((person, personIdx) => (
                                     <Listbox.Option
                                       key={personIdx}
                                       onClick={() => addMedicine(person.name)}
