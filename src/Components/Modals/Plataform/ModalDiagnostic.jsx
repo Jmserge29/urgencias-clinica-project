@@ -216,7 +216,7 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                             <option selected></option>
                             {apiMedicines.map((data) => {
                               return(
-                                <div value="US" onClick={() => addMedicine(data)}>{data.nombre}</div>
+                                <option value="US" onClick={() => addMedicine(data)}>{data.nombre}</option>
                               )
                             })}
                           </select>                          
