@@ -213,58 +213,14 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                           <label className="text-base mt-6 font-medium">
                             Medicamentos
                           </label>
-                          <Listbox value={selectedMedicine} onChange={setSelectedMedicine}>
-                            <div className="relative mt-1">
-                              <Listbox.Button className="relative w-full mb-12 cursor-default rounded-lg bg-white py-5 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-                                <span className="block truncate">
-                                  {selectedMedicine.name}
-                                </span>
-                                <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                                  <ChevronUpDownIcon
-                                    className="h-5 w-5 text-gray-400"
-                                    aria-hidden="true"
-                                  />
-                                </span>
-                              </Listbox.Button>
-                              <Transition
-                                as={Fragment}
-                                leave="transition ease-in duration-100"
-                                leaveFrom="opacity-100"
-                                leaveTo="opacity-0"
-                              >
-                                <Listbox.Options className="absolute mt-1 max-h-28 w-full overflow-auto rounded-md overflow-y-auto bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
-                                  {apiMedicines.map(async(person, personIdx) => (
-                                    <Listbox.Option
-                                      key={personIdx}
-                                      onClick={() => addMedicine(person.nombre)}
-                                      className={({ active }) =>
-                                        `flex cursor-default select-none py-2 pl-10 pr-4 ${
-                                          active
-                                            ? "bg-amber-100 text-amber-900"
-                                            : "text-gray-900"
-                                        }`
-                                      }
-                                      value={person}
-                                    >
-                                      {({ selected }) => (
-                                        <>
-                                          <span 
-                                            className={`block truncate ${
-                                              selected
-                                                ? "font-medium"
-                                                : "font-normal"
-                                            }`}
-                                          >
-                                            {person.nombre}
-                                          </span>
-                                        </>
-                                      )}
-                                    </Listbox.Option>
-                                  ))}
-                                </Listbox.Options>
-                              </Transition>
-                            </div>
-                          </Listbox>
+                          <select id="underline_select" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                            <option selected></option>
+                            {apiMedicines.map((data) => {
+                              return(
+                                <option value="US">{data.nombre}</option>
+                              )
+                            })}
+                          </select>                          
                           <label className="text-base mt-8 font-medium">
                             Tratamiento
                           </label>
