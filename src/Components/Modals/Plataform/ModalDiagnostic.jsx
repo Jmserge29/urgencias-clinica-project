@@ -212,14 +212,14 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                           <label className="text-base mt-6 font-medium">
                             Medicamentos *2
                           </label>
-                          <select id="underline_select" class="block py-2.5 mb-12 px-2 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none  focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                            <option selected></option>
+                          <div className=" container mx-auto grid grid-cols-6">
                             {apiMedicines.map((data) => {
                               return(
-                                <option value="US" onClick={() => addMedicine(data)}>{data.nombre}</option>
+                                <div className="rounded-lg mx-2 py-2 px-3 bg-slate-800" onClick={() => addMedicine(data)}>{data.nombre}</div>
                               )
                             })}
-                          </select>                          
+                          </div>
+
                           <label className="text-base mt-8 font-medium">
                             Tratamiento *
                           </label>
