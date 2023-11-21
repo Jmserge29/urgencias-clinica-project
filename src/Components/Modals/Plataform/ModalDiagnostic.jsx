@@ -20,7 +20,7 @@ const plans = [
 
 function ModalDiagnostic({ isOpen, closeModal }) {
   const [selected, setSelected] = useState(plans[0]);
-  const [selectedMedicine, setSelectedMedicine] = useState(apiMedicines[0])
+  const [selectedMedicine, setSelectedMedicine] = useState([])
   const [listMedicines, setListMedicines] = useState([])
   const [apiMedicines, setapiMedicines] = useState([])
   
