@@ -5,7 +5,11 @@ import ModalDiagnostic from './Modals/Plataform/ModalDiagnostic'
 
 function CardPatient({urgencia}) {
   const [urgency, setUrgency] = useState([])
-  let [isOpen, setIsOpen] = useState(true)
+  let [isOpen, setIsOpen] = useState(false);
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   function openModal() {
     setIsOpen(true);
@@ -32,7 +36,7 @@ function CardPatient({urgencia}) {
 
       </a>
     </article>
-    <ModalDiagnostic isOpen={isOpen} setIsOpen={setIsOpen}/>
+    <ModalDiagnostic isOpen={isOpen} closeModal={closeModal}/>
     </>
   )
 }
