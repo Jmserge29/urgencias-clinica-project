@@ -233,7 +233,9 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                                 leaveTo="opacity-0"
                               >
                                 <Listbox.Options className="absolute mt-1 max-h-28 w-full overflow-auto rounded-md overflow-y-auto bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
-                                  {apiMedicines.map((person, personIdx) => (
+                                  {apiMedicines.map(async(person, personIdx) => {
+                                    console.log("Dev ", person)
+                                    return(
                                     <Listbox.Option
                                       key={personIdx}
                                       onClick={() => addMedicine(person.name)}
@@ -260,7 +262,7 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                                         </>
                                       )}
                                     </Listbox.Option>
-                                  ))}
+                                  )})}
                                 </Listbox.Options>
                               </Transition>
                             </div>
