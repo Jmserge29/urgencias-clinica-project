@@ -48,10 +48,10 @@ function ModalDiagnostic({ isOpen, closeModal }) {
       // Si ya está, quítala del estado
       const nuevasMedicinasSeleccionadas = [...listMedicines];
       nuevasMedicinasSeleccionadas.splice(medicineIndex, 1);
-      setEmergenciasSeleccionadas(nuevasMedicinasSeleccionadas);
+      setListMedicines(nuevasMedicinasSeleccionadas);
     } else {
       // Si no está, agrégala al estado
-      setEmergenciasSeleccionadas([...listMedicines, medicine]);
+      setListMedicines([...listMedicines, medicine]);
     }
   console.log("Emergencias seleccionadas son: ", listMedicines);
   }
@@ -212,10 +212,13 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                           <label className="text-base mt-6 font-medium">
                             Medicamentos *2
                           </label>
-                          <div className=" container mx-auto grid grid-cols-6">
+                          <div className=" container mx-auto grid grid-cols-5">
                             {apiMedicines.map((data) => {
                               return(
-                                <div className="rounded-lg mx-2 py-2 px-3 bg-slate-800" onClick={() => addMedicine(data)}>{data.nombre}</div>
+                                <div className="rounded-lg mx-2 py-2 px-3 shadow-lg" onClick={() => addMedicine(data)}>
+                                  <h4 className=" font-semibold text-lg">{data.nombre}</h4>
+                                  <span className=" text-sm text-gray-400 ">{data.categoria}</span>
+                                </div>
                               )
                             })}
                           </div>
