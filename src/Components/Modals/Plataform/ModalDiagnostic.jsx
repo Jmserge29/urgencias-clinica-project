@@ -40,21 +40,20 @@ function ModalDiagnostic({ isOpen, closeModal }) {
 
   const addMedicine = async(medicine) => {
     console.log(medicine)
-  //   const medicineIndex = listMedicines.findIndex(
-  //     (selectedMedicine) => console.log(medicine)
-  //     // (selectedMedicine) => selectedMedicine._id === medicine._id
-  //   );
+    const medicineIndex = listMedicines.findIndex(
+      (selectedMedicine) => selectedMedicine._id === medicine._id
+    );
 
-  //   if (medicineIndex !== -1) {
-  //     // Si ya está, quítala del estado
-  //     const nuevasMedicinasSeleccionadas = [...listMedicines];
-  //     nuevasMedicinasSeleccionadas.splice(medicineIndex, 1);
-  //     setEmergenciasSeleccionadas(nuevasMedicinasSeleccionadas);
-  //   } else {
-  //     // Si no está, agrégala al estado
-  //     setEmergenciasSeleccionadas([...listMedicines, medicine]);
-  //   }
-  // console.log("Emergencias seleccionadas son: ", listMedicines);
+    if (medicineIndex !== -1) {
+      // Si ya está, quítala del estado
+      const nuevasMedicinasSeleccionadas = [...listMedicines];
+      nuevasMedicinasSeleccionadas.splice(medicineIndex, 1);
+      setEmergenciasSeleccionadas(nuevasMedicinasSeleccionadas);
+    } else {
+      // Si no está, agrégala al estado
+      setEmergenciasSeleccionadas([...listMedicines, medicine]);
+    }
+  console.log("Emergencias seleccionadas son: ", listMedicines);
   }
 
   useEffect(() => {
@@ -217,7 +216,7 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                             <option selected></option>
                             {apiMedicines.map((data) => {
                               return(
-                                <option value="US">{data.nombre}</option>
+                                <option value="US" onClick={() => addMedicine(data)}>{data.nombre}</option>
                               )
                             })}
                           </select>                          
