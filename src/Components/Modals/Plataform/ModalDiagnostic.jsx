@@ -210,7 +210,7 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                       {selected == plans[1] ? (
                         <div>
                           <label className="text-base mt-6 font-medium">
-                            Medicamentos
+                            Medicamentos *
                           </label>
                           <select id="underline_select" class="block py-2.5 mb-12 px-2 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none  focus:outline-none focus:ring-0 focus:border-gray-200 peer">
                             <option selected></option>
@@ -221,7 +221,7 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                             })}
                           </select>                          
                           <label className="text-base mt-8 font-medium">
-                            Tratamiento
+                            Tratamiento *
                           </label>
                           <textarea
                             rows="4"
