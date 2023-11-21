@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
-import ElementCardUser from './ElementCardUser'
+// import ElementCardUser from './ElementCardUser'
 import ModalDiagnostic from './Modals/Plataform/ModalDiagnostic'
 
 function CardPatient({urgencia}) {
@@ -20,6 +20,13 @@ function CardPatient({urgencia}) {
       setUrgency(res.data)
     })
   }
+  const[user, setUser] = useState([])
+  const loadDataUser = async() => {
+      await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${paciente}`).then((res) => {
+        setUser(res.data.usuario)
+      })
+  }
+  loadDataUser()
   loadEmergency()
   return (
     <>
@@ -29,7 +36,9 @@ function CardPatient({urgencia}) {
           <img className=' h-64 w-full bg-cover' src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&quality=40" alt="Background User Photo" />
           
         </div>
-        <ElementCardUser paciente={urgency.paciente}/>
+        <div className="flex my-3 justify-center items-center text-lg font-semibold font-mono">
+          {user.nombre} {user.apellido} :)
+        </div>
         <div>
             <span className=' mt-4 flex justify-center items-center rounded-2xl bg-indigo-500 px-3 py-2 font-semibold text-lg text-white'>{urgency.clasificacion}</span>
         </div>
