@@ -18,7 +18,7 @@ const plans = [
   },
 ];
 
-function ModalDiagnostic({ isOpen, closeModal }) {
+function ModalDiagnostic({ isOpen, closeModal, user }) {
   const [selected, setSelected] = useState(plans[0]);
   const [listMedicines, setListMedicines] = useState([])
   const [apiMedicines, setapiMedicines] = useState([])
@@ -104,7 +104,7 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                         </div>
                         <div className=" col-span-2 my-8 ml-4">
                           <h2 className="mb-3 font-bold text-2xl font-mono">
-                            Andrés Murillo Caleb
+                            {user.nombre}
                           </h2>
                           Lorem ipsum dolor sit amet consectetur adipisicing
                           elit. Distinctio temporibus totam quisquam ad aperiam.

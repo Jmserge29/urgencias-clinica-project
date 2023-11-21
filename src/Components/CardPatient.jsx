@@ -38,7 +38,7 @@ function CardPatient({urgencia}) {
 
       </a>
     </article>
-    <ModalDiagnostic isOpen={isOpen} closeModal={closeModal}/>
+    <ModalDiagnostic user={userInformation} isOpen={isOpen} closeModal={closeModal}/>
     </>
   )
 }
