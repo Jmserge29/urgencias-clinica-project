@@ -38,7 +38,7 @@ function ModalDiagnostic({ isOpen, closeModal }) {
     }
   }
 
-  const addMedicine = async(medicine) => {
+  const addMedicine = (medicine) => {
     console.log(medicine)
     const medicineIndex = listMedicines.findIndex(
       (selectedMedicine) => selectedMedicine._id === medicine._id
@@ -210,13 +210,13 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                       {selected == plans[1] ? (
                         <div>
                           <label className="text-base mt-6 font-medium">
-                            Medicamentos *
+                            Medicamentos *2
                           </label>
                           <select id="underline_select" class="block py-2.5 mb-12 px-2 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none  focus:outline-none focus:ring-0 focus:border-gray-200 peer">
                             <option selected></option>
                             {apiMedicines.map((data) => {
                               return(
-                                <option value="US" onClick={() => addMedicine(data)}>{data.nombre}</option>
+                                <div value="US" onClick={() => addMedicine(data)}>{data.nombre}</div>
                               )
                             })}
                           </select>                          
