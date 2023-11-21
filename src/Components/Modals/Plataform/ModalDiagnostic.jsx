@@ -20,7 +20,6 @@ const plans = [
 
 function ModalDiagnostic({ isOpen, closeModal }) {
   const [selected, setSelected] = useState(plans[0]);
-  const [selectedMedicine, setSelectedMedicine] = useState([])
   const [listMedicines, setListMedicines] = useState([])
   const [apiMedicines, setapiMedicines] = useState([])
   
@@ -210,12 +209,12 @@ function ModalDiagnostic({ isOpen, closeModal }) {
                       {selected == plans[1] ? (
                         <div>
                           <label className="text-base mt-6 font-medium">
-                            Medicamentos *2
+                            Medicamentos *
                           </label>
                           <div className=" container mx-auto grid grid-cols-5">
                             {apiMedicines.map((data) => {
                               return(
-                                <div className="rounded-lg mx-2 py-2 px-3 shadow-lg" onClick={() => addMedicine(data)}>
+                                <div className={`rounded-lg my-2 cursor-pointer mx-2 py-2 px-3 shadow-lg ${listMedicines.find((e) => e._id === data._id) ? "bg-blue-400 text-white":""}`} onClick={() => addMedicine(data)}>
                                   <h4 className=" font-semibold text-lg">{data.nombre}</h4>
                                   <span className=" text-sm text-gray-400 ">{data.categoria}</span>
                                 </div>
