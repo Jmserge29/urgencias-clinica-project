@@ -61,7 +61,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
 
   return (
     <>
-      <Transition appear show={isOpen} as={Fragment}>
+      {/* <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10 mx-36" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
@@ -254,7 +254,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
             </div>
           </div>
         </Dialog>
-      </Transition>
+      </Transition> */}
     </>
   );
 }
