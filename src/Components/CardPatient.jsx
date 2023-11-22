@@ -24,8 +24,8 @@ function CardPatient({urgencia}) {
       console.log(err)
     })
   }
-  useEffect(() => {
-    loadEmergency()
+  useEffect(async() => {
+    await loadEmergency()
   }, [])
   return (
     <>

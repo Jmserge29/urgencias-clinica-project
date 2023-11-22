@@ -6,11 +6,11 @@ import CardPatient from '../Components/CardPatient'
 import axios from 'axios'
 
 function Portal() {
+  // Recupera el objeto de usuario del localStorage
+  const usuarioJSON = localStorage.getItem('doctor');
+  const doctor = JSON.parse(usuarioJSON);
 
   const getIfnormationUser = async() => {
-    // Recupera el objeto de usuario del localStorage
-    const usuarioJSON = localStorage.getItem('doctor');
-    const doctor = JSON.parse(usuarioJSON);
   
     try {
       await axios
@@ -29,7 +29,7 @@ function Portal() {
     }
   }
   useEffect(async() => {
-    getIfnormationUser()
+    await getIfnormationUser()
   }, [])
   return (<>
     <SideBar/>
