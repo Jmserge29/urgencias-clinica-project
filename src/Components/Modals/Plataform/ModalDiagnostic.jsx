@@ -134,7 +134,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                     </div>
                     {/* Clasification User */}
                     <div className="">
-                      <h6 className=" text-center text-base font-medium mt-4 text-gray-800 ">
+                      <h6 className=" text-center text-base font-medium my-4 text-gray-800 ">
                         Determine la clasificación de la Urgencia :
                       </h6>
                       <RadioGroup value={selected} onChange={setSelected}>
@@ -205,7 +205,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                           <label className="text-base mt-6 font-medium">
                             Medicamentos *
                           </label>
-                          {/* <div className=" container mx-auto mb-5 grid grid-cols-5">
+                          <div className=" container mx-auto mb-5 grid grid-cols-5">
                             {apiMedicines.map((data, i) => {
                               return(
                                 <div key={i} className={`rounded-lg my-2 cursor-pointer mx-2 py-2 px-3 shadow-lg ${listMedicines.find((e) => e._id === data._id) ? "bg-blue-400 text-white":""}`} onClick={() => addMedicine(data)}>
@@ -214,7 +214,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                                 </div>
                               )
                             })}
-                          </div> */}
+                          </div>
 
                           <label className="text-base mt-8 font-medium">
                             Tratamiento *
