@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import SideBar from '../Components/Sidebar'
 import ProfileSection from '../Components/ProfileSection'
 import ProfileInformation from '../Components/ProfileInformation'
-// import CardPatient from '../Components/CardPatient'
+import CardPatient from '../Components/CardPatient'
 import axios from 'axios'
 
 function Portal() {
