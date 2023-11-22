@@ -41,18 +41,18 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
               `https://urgencias-servidor-project.vercel.app/User/getUserById/${emergencia.paciente}`
             );
             myArbol.insert(response.data.usuario);
+            const inorderResult = myArbol.inorder();
+
+            // Imprimir los resultados
+            console.log("El Arbol es: ");
+            console.log(inorderResult);
+            setEstructure(inorderResult);
+            console.log("Estado es x2: ", estructure);
           } catch (error) {
             console.error("Error al obtener información de usuario:", error);
           }
         })
       );
-      const inorderResult = myArbol.inorder();
-
-      // Imprimir los resultados
-      console.log("El Arbol es: ");
-      console.log(inorderResult);
-      setEstructure(inorderResult);
-      console.log("Estado es: ");
     } catch (error) {
       console.error("Error al procesar las emergencias:", error);
     }
