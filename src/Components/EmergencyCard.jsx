@@ -17,7 +17,7 @@ function EmergencyCard({emergency}) {
                     ID de Urgencia: {urgency._id}
                   </div>
                   <div className="text-white font-medium text-lg">
-                    Fecha: Octubre 10 del 2023 8:30 AM
+                    Fecha: {urgency.hora}
                   </div>
                   <div className="text-white font-medium py-2 mb-6">
                     Estado:{" "}
@@ -43,7 +43,7 @@ function EmergencyCard({emergency}) {
                             Doctor Asignado
                           </dt>
                           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                            {urgency.doctorAsignado}
+                            {urgency.doctorAsignado}.
                           </dd>
                         </div>
                         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -59,7 +59,7 @@ function EmergencyCard({emergency}) {
                             Sintomas
                           </dt>
                           <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                            {urgency.motivos_consulta}
+                            {urgency.motivos_consulta}.
                           </dd>
                         </div>
                         <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">

@@ -22,7 +22,8 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
   const [selected, setSelected] = useState(plans[0]);
   const [listMedicines, setListMedicines] = useState([])
   const [apiMedicines, setapiMedicines] = useState([])
-  
+  const [tratamiento, setTratamiento] = useState([])
+
 
   const dataMedicines = async() => {
     try {
@@ -57,12 +58,24 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
 
   const diagnosticar = async() => {
     try {
+      console.log(urgency._id)
       console.log(listMedicines)
-      console.log(selected)
+      console.log(tratamiento)
+      console.log(selected.name)
+      // await axios.post(`https://urgencias-servidor-project.vercel.app/Emergency/diagnostic/${urgency._id}`, {
+      //   medicamentosRecetados: listMedicines,
+      //   tratamiento,
+      //   clasificacion: selected.name
+      // }).then((res) => {
+      //   console.log(res.data)
+      // }).catch((err) => {
+      //   console.log(err)
+      // })
     } catch (error) {
       console.log("An error has ocuured in the server")
     }
   }
+
   useEffect(() => {
     dataMedicines()
   }, [])
@@ -228,6 +241,8 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                             Tratamiento *
                           </label>
                           <textarea
+                          value={tratamiento}
+                          onChange={(e) => setTratamiento(e.target.value)}
                             rows="4"
                             className=" flex justify-center px-4 items-center w-full mt-3 py-2 rounded-lg text-sm"
                             placeholder="Recomendaciones y tratamiento para el paciente"
@@ -243,7 +258,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                           <label className="text-base mt-6 font-medium block">
                             Agendarle su cita *
                           </label>
-                          <input type="date" className="flex justify-center px-4 items-center"/>
+                          <input value={tratamiento} onChange={(e) => setTratamiento(e.target.value)} type="date" className="flex justify-center px-4 items-center"/>
 
                       </div> : ""}
                     </div>
