@@ -2,77 +2,85 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import Pila from "../../../Estructures/Pila";
 import Cola from "../../../Estructures/Cola";
-import ArbolBinario from "../../../Estructures/ArbolBinario"
+import ArbolBinario from "../../../Estructures/ArbolBinario";
 import axios from "axios";
 
 function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
-    const [estructure, setEstructure] = useState([])
-    //Definiendo Estructuras
-    const myPila = new Pila()
-    const myCola = new Cola()
-    const myArbol = new ArbolBinario()
+  const [estructure, setEstructure] = useState([]);
+  //Definiendo Estructuras
+  const myPila = new Pila();
+  const myCola = new Cola();
+  const myArbol = new ArbolBinario();
 
-    // Método para anadir elementos a la (PILA)
-    const methodStackInsert = () => {
-        // Se recorre el array de todas las emergencias y se almacena el ID de la emergenica en la PILA
-        emergenciasSeleccionadas.map((emergencia) => {
-            myPila.InsertarElemento(emergencia._id)
-        })
-        const array = myPila.ImprimirPila()
-        setEstructure(array)
-    }
+  // Método para anadir elementos a la (PILA)
+  const methodStackInsert = () => {
+    // Se recorre el array de todas las emergencias y se almacena el ID de la emergenica en la PILA
+    emergenciasSeleccionadas.map((emergencia) => {
+      myPila.InsertarElemento(emergencia._id);
+    });
+    const array = myPila.ImprimirPila();
+    setEstructure(array);
+  };
 
-    // Método para anadir elementos a la (COLA)
-    const methodQueueInsert = () => {
-        emergenciasSeleccionadas.map((emergencia) => {
-            myCola.InsertarElemento(emergencia._id)
-        })
-        const array = myCola.ImprimirCola()
-        setEstructure(array)
-    }
+  // Método para anadir elementos a la (COLA)
+  const methodQueueInsert = () => {
+    emergenciasSeleccionadas.map((emergencia) => {
+      myCola.InsertarElemento(emergencia._id);
+    });
+    const array = myCola.ImprimirCola();
+    setEstructure(array);
+  };
 
-    // Método para anadir elementos  (ARBOL)
-    const methodArbolInsert = async() => {
-        try {
-            await Promise.all(
-              emergenciasSeleccionadas.map(async (emergencia) => {
-                try {
-                  const response = await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${emergencia.paciente}`);
-                  myArbol.insert(response.data.usuario);
-                } catch (error) {
-                  console.error("Error al obtener información de usuario:", error);
-                }
-              })
+  // Método para anadir elementos  (ARBOL)
+  const methodArbolInsert = async () => {
+    try {
+      await Promise.all(
+        emergenciasSeleccionadas.map(async (emergencia) => {
+          try {
+            const response = await axios.get(
+              `https://urgencias-servidor-project.vercel.app/User/getUserById/${emergencia.paciente}`
             );
-            const inorderResult = myArbol.inorder();
-
-            // Imprimir los resultados
-            console.log("Inorder:", inorderResult); 
-            setEstructure(inorderResult)
+            myArbol.insert(response.data.usuario);
           } catch (error) {
-            console.error("Error al procesar las emergencias:", error);
+            console.error("Error al obtener información de usuario:", error);
           }
-    }
-
-    const aplicateEstructure = async() => {
-      const emergencyJSON = JSON.stringify(estructure);
-      localStorage.setItem('emergencies', emergencyJSON);
-      // Recupera el objeto de usuario del localStorage
-      const usuarioJSON = localStorage.getItem('doctor');
-      const doctor = JSON.parse(usuarioJSON);
-      try {
-        await axios.post(`https://urgencias-servidor-project.vercel.app/User/insertEmergencyByUser/${doctor._id}`, {
-          emergencias: estructure
-        }).then((res) => {
-          console.log(res.data)
-        }).catch((err) => {
-          console.log(err)
         })
-      } catch (error) {
-        console.error("Error al aplicar las estructuras:", error);
-      }
+      );
+      const inorderResult = myArbol.inorder();
+
+      // Imprimir los resultados
+      console.log("Inorder:", inorderResult);
+      setEstructure(inorderResult);
+      console.log(estructure);
+    } catch (error) {
+      console.error("Error al procesar las emergencias:", error);
     }
-  
+  };
+
+  const aplicateEstructure = async () => {
+    const emergencyJSON = JSON.stringify(estructure);
+    localStorage.setItem("emergencies", emergencyJSON);
+    // Recupera el objeto de usuario del localStorage
+    const usuarioJSON = localStorage.getItem("doctor");
+    const doctor = JSON.parse(usuarioJSON);
+    try {
+      await axios
+        .post(
+          `https://urgencias-servidor-project.vercel.app/User/insertEmergencyByUser/${doctor._id}`,
+          {
+            emergencias: estructure,
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.error("Error al aplicar las estructuras:", error);
+    }
+  };
 
   return (
     <>
@@ -109,22 +117,40 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
                     ¿ Que tipo de estructura quieres aplicar ?
                   </Dialog.Title>
                   <div className="mt-2 my-8">
-                    <span className=" font-medium text-center">Pacientes Seleccionados: ({emergenciasSeleccionadas.length})</span>
+                    <span className=" font-medium text-center">
+                      Pacientes Seleccionados: (
+                      {emergenciasSeleccionadas.length})
+                    </span>
                     <div className="rounded-md mt-2 shadow-lg bg-slate-900 text-white w-full h-2/3 md:px-8 md:py-8">
-                        <pre className="text-xs">
-                        {emergenciasSeleccionadas? <>{JSON.stringify(emergenciasSeleccionadas,null,2)}</>:  "Cargando"}
-                        </pre>
+                      <pre className="text-xs">
+                        {emergenciasSeleccionadas ? (
+                          <>
+                            {JSON.stringify(emergenciasSeleccionadas, null, 2)}
+                          </>
+                        ) : (
+                          "Cargando"
+                        )}
+                      </pre>
                     </div>
                   </div>
                   <div className="mt-2 my-8">
-                    <div onClick={() => methodStackInsert()} className=" rounded-xl my-3 flex justify-center items-center bg-cyan-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">
-                        Pilas
+                    <div
+                      onClick={() => methodStackInsert()}
+                      className=" rounded-xl my-3 flex justify-center items-center bg-cyan-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold"
+                    >
+                      Pilas
                     </div>
-                    <div onClick={() => methodQueueInsert()} className=" rounded-xl my-3 flex justify-center items-center bg-blue-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">
-                        Colas
+                    <div
+                      onClick={() => methodQueueInsert()}
+                      className=" rounded-xl my-3 flex justify-center items-center bg-blue-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold"
+                    >
+                      Colas
                     </div>
-                    <div onClick={()=> methodArbolInsert()} className=" rounded-xl my-3 flex justify-center items-center bg-indigo-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold">
-                        Arbol Binario
+                    <div
+                      onClick={() => methodArbolInsert()}
+                      className=" rounded-xl my-3 flex justify-center items-center bg-indigo-500 cursor-pointer py-2 px-4 h-20 text-base text-white font-semibold"
+                    >
+                      Arbol Binario
                     </div>
                   </div>
                   <div className="mt-4 text-center space-x-5">
@@ -137,7 +163,7 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
                     </button>
 
                     <button
-                    onClick={() => aplicateEstructure()}
+                      onClick={() => aplicateEstructure()}
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-stone-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                     >
