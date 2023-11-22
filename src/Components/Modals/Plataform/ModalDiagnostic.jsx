@@ -61,7 +61,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
       console.log(listMedicines)
       console.log(tratamiento)
       console.log(selected.name)
-      await axios.post(`https://urgencias-servidor-project.vercel.app/Emergency/diagnostic/${urgency._id}`, {
+      await axios.put(`https://urgencias-servidor-project.vercel.app/Emergency/diagnostic/${urgency._id}`, {
         medicamentosRecetados: listMedicines,
         tratamiento,
         clasificacion: selected.name
