@@ -46,14 +46,13 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
           }
         })
       );
-      const inorderResult = await myArbol.inorder();
+      const inorderResult = myArbol.inorder();
 
       // Imprimir los resultados
       console.log("El Arbol es: ");
       console.log(inorderResult);
       setEstructure(inorderResult);
       console.log("Estado es: ");
-      console.log(estructure);
     } catch (error) {
       console.error("Error al procesar las emergencias:", error);
     }
@@ -83,6 +82,7 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
       console.error("Error al aplicar las estructuras:", error);
     }
   };
+  console.log(estructure, "XD");
 
   return (
     <>
