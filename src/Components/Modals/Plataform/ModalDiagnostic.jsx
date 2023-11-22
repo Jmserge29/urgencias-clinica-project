@@ -231,8 +231,8 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                         ""
                       )}
                       {selected == plans[2] ? 
-                      <div>
-                          <label className="text-base mt-6 font-medium">
+                      <div className="text-center flex justify-center items-center">
+                          <label className="text-base mt-6 font-medium block">
                             Agendarle su cita *
                           </label>
                           <input type="date" className="flex justify-center px-4 items-center"/>
