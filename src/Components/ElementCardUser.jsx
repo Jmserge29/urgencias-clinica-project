@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function ElementCardUser({paciente}) {
+  console.log(paciente)
     // const[user, setUser] = useState([])
     // const loadDataUser = async() => {
     //     await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${paciente}`).then((res) => {
