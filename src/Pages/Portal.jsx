@@ -45,8 +45,8 @@ function Portal() {
         <div className='grid grid-cols-4 px-2 mb-32'>
           {doctor.emergencias_asignadas.map((data, i) => {
             return(
-              <div key={data._id}>
-                {data._id}
+              <div key={i}>
+                {data}
                 {/* <CardPatient urgencia={data}/> */}
               </div>
             )
