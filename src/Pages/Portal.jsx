@@ -10,26 +10,26 @@ function Portal() {
   const usuarioJSON = localStorage.getItem('doctor');
   const doctor = JSON.parse(usuarioJSON);
 
-  // const getIfnormationUser = async() => {
-  //   try {
-  //     await axios
-  //     .get(
-  //       `https://urgencias-servidor-project.vercel.app/User/getUserById/${doctor._id}`
-  //     )
-  //     .then((res) => {
-  //       const usuarioJSON = JSON.stringify(res.data.usuario);
-  //         localStorage.setItem('doctor', usuarioJSON);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  //   } catch (error) {
-  //     console.log("error error")
-  //   }
-  // }
-  // useEffect(async() => {
-  //   getIfnormationUser()
-  // }, [])
+  const getIfnormationUser = async() => {
+    try {
+      await axios
+      .get(
+        `https://urgencias-servidor-project.vercel.app/User/getUserById/${doctor._id}`
+      )
+      .then((res) => {
+        const usuarioJSON = JSON.stringify(res.data.usuario);
+          localStorage.setItem('doctor', usuarioJSON);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    } catch (error) {
+      console.log("error error")
+    }
+  }
+  useEffect(async() => {
+    getIfnormationUser()
+  }, [])
   return (<>
     <SideBar/>
     <div className='sm:ml-44 mt-16 sm:mr-12'>
