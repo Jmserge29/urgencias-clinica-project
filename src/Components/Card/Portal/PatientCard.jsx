@@ -16,6 +16,7 @@ function PatientCard({ data, array, fuctionClick }) {
           setUser(res.data.usuario);
         })
         .catch((err) => {
+          console.log("PatientCard")
           console.log(err);
         });
     } catch (error) {

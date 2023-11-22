@@ -34,8 +34,8 @@ function CardPatient({urgencia}) {
         <div className="relative flex items-end overflow-hidden rounded-xl">
           <img className=' h-64 w-full bg-cover' src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&quality=40" alt="Background User Photo" />
           
-        </div>
-        <ElementCardUser paciente={urgency.paciente}/>
+        </div>{urgency ? <ElementCardUser paciente={urgency.paciente}/> : "Loading"}
+    
         <div>
             <span className=' mt-4 flex justify-center items-center rounded-2xl bg-indigo-500 px-3 py-2 font-semibold text-lg text-white'>{urgency.clasificacion}</span>
         </div>
