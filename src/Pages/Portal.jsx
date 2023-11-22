@@ -46,8 +46,7 @@ function Portal() {
           {doctor.emergencias_asignadas.map((data, i) => {
             return(
               <div key={i}>
-                {data}
-                {/* <CardPatient urgencia={data}/> */}
+                <CardPatient urgencia={data}/>
               </div>
             )
           })}
