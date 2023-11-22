@@ -122,13 +122,13 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                           <h4 className="text-lg font-semibold text-white flex justify-center">
                             Historial Clínico
                           </h4>
-                            {user.historialMedico.map((data, i) => {
+                            {/* {user.historialMedico.map((data, i) => {
                               return(
                                 <div key={i} className="bg-white h-20 rounded-xl mx-8 my-4 px-2">
                                   Historial Clinico
                                 </div>
                               )
-                            })}
+                            })} */}
                         </div>
                       </div>
                     </div>
@@ -137,7 +137,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                       <h6 className=" text-center text-base font-medium mt-4 text-gray-800 ">
                         Determine la clasificación de la Urgencia :
                       </h6>
-                      <RadioGroup value={selected} onChange={setSelected}>
+                      {/* <RadioGroup value={selected} onChange={setSelected}>
                         <RadioGroup.Label className="sr-only">
                           Server size
                         </RadioGroup.Label>
@@ -196,7 +196,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                             </RadioGroup.Option>
                           ))}
                         </div>
-                      </RadioGroup>
+                      </RadioGroup> */}
                     </div>
                     {/* Method Tratamiento */}
                     <div className="mt-8 mx-12">
@@ -205,7 +205,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                           <label className="text-base mt-6 font-medium">
                             Medicamentos *
                           </label>
-                          <div className=" container mx-auto mb-5 grid grid-cols-5">
+                          {/* <div className=" container mx-auto mb-5 grid grid-cols-5">
                             {apiMedicines.map((data, i) => {
                               return(
                                 <div key={i} className={`rounded-lg my-2 cursor-pointer mx-2 py-2 px-3 shadow-lg ${listMedicines.find((e) => e._id === data._id) ? "bg-blue-400 text-white":""}`} onClick={() => addMedicine(data)}>
@@ -214,7 +214,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                                 </div>
                               )
                             })}
-                          </div>
+                          </div> */}
 
                           <label className="text-base mt-8 font-medium">
                             Tratamiento *
