@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function ElementCardUser({ paciente }) {
+function ElementCardUser({ paciente, setuserInformation }) {
   const [user, setUser] = useState([]);
   const loadDataUser = async () => {
     await axios
@@ -10,7 +10,7 @@ function ElementCardUser({ paciente }) {
       )
       .then((res) => {
         setUser(res.data.usuario);
-        // setuserInformation(res.data.usuario)
+        setuserInformation(res.data.usuario)
       })
       .catch((err) => {
         console.log("ELEMENT ERRR");
