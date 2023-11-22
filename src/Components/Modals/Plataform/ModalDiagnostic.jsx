@@ -142,9 +142,9 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                           Server size
                         </RadioGroup.Label>
                         <div className="space-y-2 grid grid-cols-3 space-x-4">
-                          {plans.map((plan) => (
+                          {plans.map((plan, i) => (
                             <RadioGroup.Option
-                              key={plan.name}
+                              key={i}
                               value={plan}
                               className={({ active, checked }) =>
                                 `${
@@ -206,9 +206,9 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                             Medicamentos *
                           </label>
                           <div className=" container mx-auto mb-5 grid grid-cols-5">
-                            {apiMedicines.map((data) => {
+                            {apiMedicines.map((data, i) => {
                               return(
-                                <div className={`rounded-lg my-2 cursor-pointer mx-2 py-2 px-3 shadow-lg ${listMedicines.find((e) => e._id === data._id) ? "bg-blue-400 text-white":""}`} onClick={() => addMedicine(data)}>
+                                <div key={i} className={`rounded-lg my-2 cursor-pointer mx-2 py-2 px-3 shadow-lg ${listMedicines.find((e) => e._id === data._id) ? "bg-blue-400 text-white":""}`} onClick={() => addMedicine(data)}>
                                   <h4 className=" font-semibold text-lg">{data.nombre}</h4>
                                   <span className={` text-sm text-gray-400 ${listMedicines.find((e) => e._id === data._id) ? "text-white/80":""}`}>{data.categoria}</span>
                                 </div>
