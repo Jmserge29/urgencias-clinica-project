@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useState } from 'react'
 import ElementCardUser from './ElementCardUser'
-import ModalDiagnostic from './Modals/Plataform/ModalDiagnostic'
+// import ModalDiagnostic from './Modals/Plataform/ModalDiagnostic'
 
 function CardPatient({urgencia}) {
   const [urgency, setUrgency] = useState([])
@@ -37,7 +37,7 @@ function CardPatient({urgencia}) {
 
       </a>
     </article>
-    <ModalDiagnostic urgency={urgency} user={userInformation} isOpen={isOpen} closeModal={closeModal}/>
+    {/* <ModalDiagnostic urgency={urgency} user={userInformation} isOpen={isOpen} closeModal={closeModal}/> */}
     </>
   )
 }
