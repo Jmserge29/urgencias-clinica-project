@@ -42,7 +42,7 @@ function CardPatient({urgencia}) {
 
       </a>
     </article>
-    <ModalDiagnostic urgency={urgency} user={userInformation} isOpen={isOpen} closeModal={closeModal}/>
+    {/* <ModalDiagnostic urgency={urgency} user={userInformation} isOpen={isOpen} closeModal={closeModal}/> */}
     </>
   )
 }
