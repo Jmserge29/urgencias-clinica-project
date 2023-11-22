@@ -33,7 +33,7 @@ function PatientCard({ data, array, fuctionClick }) {
         <div
           className=" col-span-1 h-52 bg-cover rounded-xl"
           style={{
-            backgroundImage: `url('https://labiode.com/wp-content/uploads/2023/02/Saiko.jpg')`,
+            backgroundImage: `url('https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&quality=40')`,
           }}
         ></div>
         <div className=" col-span-4 flex items-center">
