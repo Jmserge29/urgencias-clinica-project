@@ -55,6 +55,14 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
   console.log("Emergencias seleccionadas son: ", listMedicines);
   }
 
+  const diagnosticar = async() => {
+    try {
+      console.log(listMedicines)
+      console.log(selected)
+    } catch (error) {
+      console.log("An error has ocuured in the server")
+    }
+  }
   useEffect(() => {
     dataMedicines()
   }, [])
@@ -231,7 +239,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                         ""
                       )}
                       {selected == plans[2] ? 
-                      <div className="text-center flex justify-center items-center">
+                      <div className="text-center">
                           <label className="text-base mt-6 font-medium block">
                             Agendarle su cita *
                           </label>
@@ -252,6 +260,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
 
                     <button
                       type="button"
+                      onClick={() => diagnosticar()}
                       className="inline-flex justify-center rounded-md border border-transparent bg-indigo-100 px-4 py-2 text-lg font-medium text-stone-900 hover:bg-indigo-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
                     >
                       Diagnosticar
