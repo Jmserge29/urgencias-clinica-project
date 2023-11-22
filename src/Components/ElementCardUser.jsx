@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function ElementCardUser({paciente}) {
     const[user, setUser] = useState([])
@@ -12,7 +12,9 @@ function ElementCardUser({paciente}) {
           console.log(err)
         })
     }
+    useEffect(() => {
       loadDataUser()
+    }, [])
   return (<>
     <div className="flex my-3 justify-center items-center text-lg font-semibold font-mono">
       {user.nombre} {user.apellido}
