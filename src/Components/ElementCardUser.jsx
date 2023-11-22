@@ -25,10 +25,10 @@ function ElementCardUser({ paciente }) {
   return (
     <>
       <div className="flex my-3 justify-center items-center text-lg font-semibold font-mono">
-        {/* {user.nombre} {user.apellido} */}user
+        {user.nombre} {user.apellido}
       </div>
       <span className="text-center flex justify-center rounded-2xl bg-slate-900 text-white py-3 px-4">
-        Edad: 85
+        Edad: {user.edad}
       </span>
     </>
   );

@@ -23,7 +23,7 @@ function PatientCard({ data, array, fuctionClick }) {
       console.log("An error in the request");
     }
   };
-  // getInformationUser();
+  getInformationUser();
   return (
     <>
       <div
