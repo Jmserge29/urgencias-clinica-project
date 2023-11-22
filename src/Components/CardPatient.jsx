@@ -6,7 +6,7 @@ import ElementCardUser from './ElementCardUser'
 function CardPatient({urgencia}) {
   const [urgency, setUrgency] = useState([])
   let [isOpen, setIsOpen] = useState(false);
-  const [userInformation, setuserInformation] = useState([])
+  // const [userInformation, setuserInformation] = useState([])
 
   function closeModal() {
     setIsOpen(false);
@@ -30,7 +30,7 @@ function CardPatient({urgencia}) {
           <img className=' h-64 w-full bg-cover' src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&quality=40" alt="Background User Photo" />
           
         </div>
-        <ElementCardUser setuserInformation={setuserInformation} paciente={urgency.paciente}/>
+        <ElementCardUser paciente={urgency.paciente}/>
         <div>
             <span className=' mt-4 flex justify-center items-center rounded-2xl bg-indigo-500 px-3 py-2 font-semibold text-lg text-white'>{urgency.clasificacion}</span>
         </div>

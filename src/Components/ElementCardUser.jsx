@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 
-function ElementCardUser({paciente, setuserInformation}) {
+function ElementCardUser({paciente}) {
     const[user, setUser] = useState([])
     const loadDataUser = async() => {
         await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${paciente}`).then((res) => {
           setUser(res.data.usuario)
-          setuserInformation(res.data.usuario)
+          // setuserInformation(res.data.usuario)
         })
     }
       loadDataUser()
