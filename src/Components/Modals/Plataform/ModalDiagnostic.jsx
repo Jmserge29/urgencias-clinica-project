@@ -98,7 +98,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                         <div className=" col-span-1 flex items-center justify-center text-center">
                           <img
                             className="h-36 w-36 bg-cover rounded-full bg-slate-600"
-                            src="https://primicia.com.ve/wp-content/uploads/2022/07/Anuel-640x524.jpeg"
+                            src="https://www.softzone.es/app/uploads/2018/04/guest.png?x=480&quality=40"
                             alt="User"
                           />
                         </div>
@@ -208,7 +208,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                           <div className=" container mx-auto mb-5 grid grid-cols-5">
                             {apiMedicines.map((data, i) => {
                               return(
-                                <div key={i} className={`rounded-lg my-2 cursor-pointer mx-2 py-2 px-3 shadow-lg ${listMedicines.find((e) => e._id === data._id) ? "bg-blue-400 text-white":""}`} onClick={() => addMedicine(data)}>
+                                <div key={i} className={`rounded-lg my-4 cursor-pointer mx-2 py-2 px-3 shadow-lg ${listMedicines.find((e) => e._id === data._id) ? "bg-blue-400 text-white":""}`} onClick={() => addMedicine(data)}>
                                   <h4 className=" font-semibold text-lg">{data.nombre}</h4>
                                   <span className={` text-sm text-gray-400 ${listMedicines.find((e) => e._id === data._id) ? "text-white/80":""}`}>{data.categoria}</span>
                                 </div>
@@ -230,6 +230,14 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                       ) : (
                         ""
                       )}
+                      {selected == plans[2] ? 
+                      <div>
+                          <label className="text-base mt-6 font-medium">
+                            Agendarle su cita *
+                          </label>
+                          <input type="date" className="flex justify-center px-4 items-center"/>
+
+                      </div> : ""}
                     </div>
                   </div>
 
