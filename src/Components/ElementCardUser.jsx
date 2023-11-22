@@ -4,24 +4,24 @@ import { useEffect, useState } from "react";
 function ElementCardUser({ paciente }) {
   const [user, setUser] = useState([]);
   const loadDataUser = async () => {
-    if (paciente) {
-      await axios
-        .get(
-          `https://urgencias-servidor-project.vercel.app/User/getUserById/${paciente}`
-        )
-        .then((res) => {
-          setUser(res.data.usuario);
-          // setuserInformation(res.data.usuario)
-        })
-        .catch((err) => {
-          console.log("ELEMENT ERRR");
-          console.log(err);
-        });
-    }
+    await axios
+      .get(
+        `https://urgencias-servidor-project.vercel.app/User/getUserById/${paciente}`
+      )
+      .then((res) => {
+        setUser(res.data.usuario);
+        // setuserInformation(res.data.usuario)
+      })
+      .catch((err) => {
+        console.log("ELEMENT ERRR");
+        console.log(err);
+      });
   };
-  useEffect(async () => {
-    await loadDataUser();
-  }, []);
+    if (paciente) {
+      loadDataUser();
+    } else {
+      return
+    }
   return (
     <>
       <div className="flex my-3 justify-center items-center text-lg font-semibold font-mono">
