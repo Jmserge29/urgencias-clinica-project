@@ -50,8 +50,8 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
 
       // Imprimir los resultados
       console.log("Inorder:", inorderResult);
-      setEstructure(inorderResult);
       console.log(estructure);
+      setEstructure(inorderResult);
     } catch (error) {
       console.error("Error al procesar las emergencias:", error);
     }
