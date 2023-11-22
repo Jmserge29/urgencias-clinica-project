@@ -51,8 +51,12 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
       // Imprimir los resultados
       console.log("El Arbol es: ");
       console.log(inorderResult);
-      setEstructure(inorderResult);
-      console.log("Estado es: ");
+      setEstructure((prevState) => {
+        const newState = [...prevState];
+        newState.push(inorderResult);
+        return newState;
+      });
+      console.log("Estado es x2: ");
       console.log(estructure);
     } catch (error) {
       console.error("Error al procesar las emergencias:", error);
