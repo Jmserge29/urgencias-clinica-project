@@ -122,13 +122,13 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                           <h4 className="text-lg font-semibold text-white flex justify-center">
                             Historial Clínico
                           </h4>
-                            {/* {user.historialMedico.map((data, i) => {
+                            {user.historialMedico.map((data, i) => {
                               return(
                                 <div key={i} className="bg-white h-20 rounded-xl mx-8 my-4 px-2">
                                   Historial Clinico
                                 </div>
                               )
-                            })} */}
+                            })}
                         </div>
                       </div>
                     </div>
