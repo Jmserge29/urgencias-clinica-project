@@ -1,67 +1,67 @@
-// import { useState, Fragment, useEffect } from "react";
-// import { Dialog, Transition, RadioGroup, Listbox } from "@headlessui/react";
-// import {  ChevronUpDownIcon } from '@heroicons/react/20/solid'
-// import axios from "axios";
+import { useState, Fragment, useEffect } from "react";
+import { Dialog, Transition, RadioGroup, Listbox } from "@headlessui/react";
+import {  ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import axios from "axios";
 
-// const plans = [
-//   {
-//     name: "Admitir",
-//     ram: "El paciente será remitido directamente a los servicios de urgencias por su grado de complejidad",
-//   },
-//   {
-//     name: "Dar de Alta con Tratamiento",
-//     ram: "El paciente será dado de alta con su respecto tratamiento luego de una previa revisión",
-//   },
-//   {
-//     name: "Dar de Alta con Cita Prioritaria",
-//     ram: "El paciente será dado de alta con cita prioritaria ya que su motivo de consulta no supone una urgencia",
-//   },
-// ];
+const plans = [
+  {
+    name: "Admitir",
+    ram: "El paciente será remitido directamente a los servicios de urgencias por su grado de complejidad",
+  },
+  {
+    name: "Dar de Alta con Tratamiento",
+    ram: "El paciente será dado de alta con su respecto tratamiento luego de una previa revisión",
+  },
+  {
+    name: "Dar de Alta con Cita Prioritaria",
+    ram: "El paciente será dado de alta con cita prioritaria ya que su motivo de consulta no supone una urgencia",
+  },
+];
 
 function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
-  // const [selected, setSelected] = useState(plans[0]);
-  // const [listMedicines, setListMedicines] = useState([])
-  // const [apiMedicines, setapiMedicines] = useState([])
+  const [selected, setSelected] = useState(plans[0]);
+  const [listMedicines, setListMedicines] = useState([])
+  const [apiMedicines, setapiMedicines] = useState([])
   
 
-  // const dataMedicines = async() => {
-  //   try {
-  //     await axios.get("https://urgencias-servidor-project.vercel.app/Medicine/getMedicines").then((res) => {
-  //       console.log(res.data)
-  //       setapiMedicines(res.data)
-  //     }).catch((err) => {
-  //       console.log(err)
-  //     })
-  //   } catch (error) {
-  //     console.log("Error de peticion")
-  //   }
-  // }
+  const dataMedicines = async() => {
+    try {
+      await axios.get("https://urgencias-servidor-project.vercel.app/Medicine/getMedicines").then((res) => {
+        console.log(res.data)
+        setapiMedicines(res.data)
+      }).catch((err) => {
+        console.log(err)
+      })
+    } catch (error) {
+      console.log("Error de peticion")
+    }
+  }
 
-  // const addMedicine = (medicine) => {
-  //   console.log(medicine)
-  //   const medicineIndex = listMedicines.findIndex(
-  //     (selectedMedicine) => selectedMedicine._id === medicine._id
-  //   );
+  const addMedicine = (medicine) => {
+    console.log(medicine)
+    const medicineIndex = listMedicines.findIndex(
+      (selectedMedicine) => selectedMedicine._id === medicine._id
+    );
 
-  //   if (medicineIndex !== -1) {
-  //     // Si ya está, quítala del estado
-  //     const nuevasMedicinasSeleccionadas = [...listMedicines];
-  //     nuevasMedicinasSeleccionadas.splice(medicineIndex, 1);
-  //     setListMedicines(nuevasMedicinasSeleccionadas);
-  //   } else {
-  //     // Si no está, agrégala al estado
-  //     setListMedicines([...listMedicines, medicine]);
-  //   }
-  // console.log("Emergencias seleccionadas son: ", listMedicines);
-  // }
+    if (medicineIndex !== -1) {
+      // Si ya está, quítala del estado
+      const nuevasMedicinasSeleccionadas = [...listMedicines];
+      nuevasMedicinasSeleccionadas.splice(medicineIndex, 1);
+      setListMedicines(nuevasMedicinasSeleccionadas);
+    } else {
+      // Si no está, agrégala al estado
+      setListMedicines([...listMedicines, medicine]);
+    }
+  console.log("Emergencias seleccionadas son: ", listMedicines);
+  }
 
-  // useEffect(() => {
-  //   dataMedicines()
-  // }, [])
+  useEffect(() => {
+    dataMedicines()
+  }, [])
 
   return (
     <>
-      {/* <Transition appear show={isOpen} as={Fragment}>
+      <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10 mx-36" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
@@ -254,7 +254,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
             </div>
           </div>
         </Dialog>
-      </Transition> */}
+      </Transition>
     </>
   );
 }
