@@ -5,15 +5,15 @@ import axios from "axios";
 
 const plans = [
   {
-    name: "Admitir",
+    name: "Admitido a Urgencias",
     ram: "El paciente será remitido directamente a los servicios de urgencias por su grado de complejidad",
   },
   {
-    name: "Dar de Alta con Tratamiento",
+    name: "Dado de Alta con Tratamiento",
     ram: "El paciente será dado de alta con su respecto tratamiento luego de una previa revisión",
   },
   {
-    name: "Dar de Alta con Cita Prioritaria",
+    name: "Dado de Alta con Cita Prioritaria",
     ram: "El paciente será dado de alta con cita prioritaria ya que su motivo de consulta no supone una urgencia",
   },
 ];
@@ -23,7 +23,6 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
   const [listMedicines, setListMedicines] = useState([])
   const [apiMedicines, setapiMedicines] = useState([])
   const [tratamiento, setTratamiento] = useState([])
-
 
   const dataMedicines = async() => {
     try {
@@ -62,15 +61,15 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
       console.log(listMedicines)
       console.log(tratamiento)
       console.log(selected.name)
-      // await axios.post(`https://urgencias-servidor-project.vercel.app/Emergency/diagnostic/${urgency._id}`, {
-      //   medicamentosRecetados: listMedicines,
-      //   tratamiento,
-      //   clasificacion: selected.name
-      // }).then((res) => {
-      //   console.log(res.data)
-      // }).catch((err) => {
-      //   console.log(err)
-      // })
+      await axios.post(`https://urgencias-servidor-project.vercel.app/Emergency/diagnostic/${urgency._id}`, {
+        medicamentosRecetados: listMedicines,
+        tratamiento,
+        clasificacion: selected.name
+      }).then((res) => {
+        console.log(res.data)
+      }).catch((err) => {
+        console.log(err)
+      })
     } catch (error) {
       console.log("An error has ocuured in the server")
     }

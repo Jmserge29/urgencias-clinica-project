@@ -10,7 +10,7 @@ function Home() {
     <div>
       <NavBar/>
       <div className=" mx-auto">
-        <img className="h-[44rem] w-full bg-cover" src="https://www.elheraldo.co/sites/default/files/articulo/2023/01/05/clinica_portoazul_auna.jpg" alt="CGN" />
+        <img className="h-[44rem] w-full bg-cover" src="https://www.elheraldo.co/sites/default/files/articulo/2022/09/21/judi_porto_azul.jpg" alt="CGN" />
       </div>
       <BannerAcademico/>
       <BannerCGN/>
