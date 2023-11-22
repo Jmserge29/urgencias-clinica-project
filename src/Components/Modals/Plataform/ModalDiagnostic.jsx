@@ -122,13 +122,13 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                           <h4 className="text-lg font-semibold text-white flex justify-center">
                             Historial Clínico
                           </h4>
-                            {user.historialMedico.map((data, i) => {
+                            {/* {user.historialMedico.map((data, i) => {
                               return(
                                 <div key={i} className="bg-white h-20 rounded-xl mx-8 my-4 px-2">
                                   Historial Clinico
                                 </div>
                               )
-                            })}
+                            })} */}
                         </div>
                       </div>
                     </div>
@@ -137,7 +137,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                       <h6 className=" text-center text-base font-medium mt-4 text-gray-800 ">
                         Determine la clasificación de la Urgencia :
                       </h6>
-                      {/* <RadioGroup value={selected} onChange={setSelected}>
+                      <RadioGroup value={selected} onChange={setSelected}>
                         <RadioGroup.Label className="sr-only">
                           Server size
                         </RadioGroup.Label>
@@ -196,7 +196,7 @@ function ModalDiagnostic({ isOpen, closeModal, user, urgency }) {
                             </RadioGroup.Option>
                           ))}
                         </div>
-                      </RadioGroup> */}
+                      </RadioGroup>
                     </div>
                     {/* Method Tratamiento */}
                     <div className="mt-8 mx-12">
