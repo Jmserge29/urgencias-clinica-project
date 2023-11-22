@@ -7,6 +7,9 @@ function ElementCardUser({paciente}) {
         await axios.get(`https://urgencias-servidor-project.vercel.app/User/getUserById/${paciente}`).then((res) => {
           setUser(res.data.usuario)
           // setuserInformation(res.data.usuario)
+        }).catch((err) => {
+          console.log("ELEMENT ERRR")
+          console.log(err)
         })
     }
       loadDataUser()

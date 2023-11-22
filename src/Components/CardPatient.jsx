@@ -19,6 +19,9 @@ function CardPatient({urgencia}) {
   const loadEmergency = async() => {
     await axios.get(`https://urgencias-servidor-project.vercel.app/Emergency/getEmergencyById/${urgencia}`).then((res) => {
       setUrgency(res.data)
+    }).catch((err) => {
+      console.log("err here")
+      console.log(err)
     })
   }
   loadEmergency()
