@@ -46,17 +46,13 @@ function ModalEstructure({ isOpen, closeModal, emergenciasSeleccionadas }) {
           }
         })
       );
-      const inorderResult = myArbol.inorder();
+      const inorderResult = await myArbol.inorder();
 
       // Imprimir los resultados
       console.log("El Arbol es: ");
       console.log(inorderResult);
-      setEstructure((prevState) => {
-        const newState = [...prevState];
-        newState.push(inorderResult);
-        return newState;
-      });
-      console.log("Estado es x2: ");
+      setEstructure(inorderResult);
+      console.log("Estado es: ");
       console.log(estructure);
     } catch (error) {
       console.error("Error al procesar las emergencias:", error);
