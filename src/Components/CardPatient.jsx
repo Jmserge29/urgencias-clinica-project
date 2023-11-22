@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ElementCardUser from './ElementCardUser'
 // import ModalDiagnostic from './Modals/Plataform/ModalDiagnostic'
 
@@ -24,7 +24,9 @@ function CardPatient({urgencia}) {
       console.log(err)
     })
   }
-  loadEmergency()
+  useEffect(() => {
+    loadEmergency()
+  }, [])
   return (
     <>
     <article onClick={openModal} className="rounded-xl mt-16 bg-white p-3 h-96 mx-4 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
